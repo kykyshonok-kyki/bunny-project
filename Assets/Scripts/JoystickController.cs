@@ -2,28 +2,25 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Joystick_move : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
+public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
-	public Transform	playerTr;
-	private Image		joystick;
-	private Image		jPoint;
-	private Vector2		inputVector;
+	private const float	secondActionScale = 0.85f;
+	private const float deadzoneScale = 0.25f;
+
+	private Image joystick;
+	private Image jPoint;
+	private Vector2 inputVector;
 
 	private float	speed;
 
-	private void Start()
+	private void	Start()
 	{
-		playerTr = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		joystick = GetComponent<Image>();
-		jPoint = transform.GetChild(0).GetComponent<Image>();
+		jPoint = transform.GetChild(1).GetComponent<Image>();
+		transform.GetChild(0).GetComponent<Image>().rectTransform.localScale = new Vector2(secondActionScale, secondActionScale);
 	}
 
-	private void Update()
-	{
-		CharacterMove();
-	}
-
-	public void OnDrag(PointerEventData eventData)
+	public void		OnDrag(PointerEventData eventData)
 	{
 		Vector2 pos;
 		if (RectTransformUtility.ScreenPointToLocalPointInRectangle(joystick.rectTransform, eventData.position, eventData.pressEventCamera, out pos))
@@ -37,9 +34,9 @@ public class Joystick_move : MonoBehaviour, IDragHandler, IPointerUpHandler, IPo
 			if (inputVector.magnitude > 1)
 				inputVector = inputVector.normalized;
 			jPoint.rectTransform.anchoredPosition = new Vector2 (inputVector.x * joystick.rectTransform.sizeDelta.x / 2, inputVector.y * joystick.rectTransform.sizeDelta.y / 2);
-			if (inputVector.magnitude < 0.1)
+			if (inputVector.magnitude < deadzoneScale)
 				speed = 0;
-			else if (inputVector.magnitude < 0.9)
+			else if (inputVector.magnitude < secondActionScale)
 				speed = 2;
 			else
 				speed = 6;
@@ -47,25 +44,24 @@ public class Joystick_move : MonoBehaviour, IDragHandler, IPointerUpHandler, IPo
 		}
 	}
 
-	public void OnPointerDown(PointerEventData eventData)
+	public void		OnPointerDown(PointerEventData eventData)
 	{
 		OnDrag(eventData);
 	}
 
-	public void OnPointerUp(PointerEventData eventData)
+	public void		OnPointerUp(PointerEventData eventData)
 	{
 		inputVector = Vector2.zero;
 		jPoint.rectTransform.anchoredPosition = inputVector;
 	}
 
-	public void CharacterMove()
+	public float	GetSpeed()
 	{
-		float	curSpeed;
+		return (speed);
+	}
 
-		if (inputVector.magnitude != 0)
-		{
-			curSpeed = speed * Time.deltaTime;
-			playerTr.position = new Vector2(playerTr.position.x + inputVector.x * curSpeed, playerTr.position.y + inputVector.y * curSpeed);
-		}
+	public Vector2	GetVector()
+	{
+		return (inputVector);
 	}
 }
