@@ -6,6 +6,8 @@ TagManager:
   tags:
   - MoveController
   - ShootController
+  - DefBullet
+  - Bullet
   layers:
   - Default
   - TransparentFX

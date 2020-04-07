@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Made by kyki (neskajju@mail.ru) in April 2020
+
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -11,7 +13,7 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 	private Image jPoint;
 	private Vector2 inputVector;
 
-	private float	speed;
+	private float	JPointPos;
 
 	private void	Start()
 	{
@@ -27,7 +29,6 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 		{
 			pos.x = pos.x / joystick.rectTransform.sizeDelta.x;
 			pos.y = pos.y / joystick.rectTransform.sizeDelta.y;
-
 			inputVector.x = pos.x * 2 - 1;
 			inputVector.y = pos.y * 2 - 1;
 
@@ -35,11 +36,11 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 				inputVector = inputVector.normalized;
 			jPoint.rectTransform.anchoredPosition = new Vector2 (inputVector.x * joystick.rectTransform.sizeDelta.x / 2, inputVector.y * joystick.rectTransform.sizeDelta.y / 2);
 			if (inputVector.magnitude < deadzoneScale)
-				speed = 0;
+				JPointPos = 0;
 			else if (inputVector.magnitude < secondActionScale)
-				speed = 2;
+				JPointPos = 1;
 			else
-				speed = 6;
+				JPointPos = 2;
 			inputVector = inputVector.normalized;
 		}
 	}
@@ -55,9 +56,9 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 		jPoint.rectTransform.anchoredPosition = inputVector;
 	}
 
-	public float	GetSpeed()
+	public float	GetJPointPos()
 	{
-		return (speed);
+		return (JPointPos);
 	}
 
 	public Vector2	GetVector()

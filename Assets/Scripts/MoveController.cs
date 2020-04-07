@@ -1,31 +1,34 @@
-﻿using UnityEngine;
+﻿//Made by kyki (neskajju@mail.ru) in April 2020
+
+using UnityEngine;
 
 public class MoveController : MonoBehaviour
 {
 	private JoystickController	jContr;
 
-	public Transform playerTr;
-
-	void Start()
+	private void	Start()
 	{
-		playerTr = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		jContr = GameObject.FindGameObjectWithTag("MoveController").GetComponent<JoystickController>();
 	}
 
-	private void Update()
+	private void	Update()
 	{
 		CharacterMove();
 	}
 
-	public void CharacterMove()
+	private void	CharacterMove()
 	{
-		float	curSpeed = jContr.GetSpeed();
+		float	curSpeed = jContr.GetJPointPos();
 		Vector2 inputVector = jContr.GetVector();
 
-		if (inputVector.magnitude != 0)
+		if (inputVector.magnitude != 0 & curSpeed != 0)
 		{
+			if (curSpeed == 1)
+				curSpeed = 2;
+			else
+				curSpeed = 6;
 			curSpeed *= Time.deltaTime;
-			playerTr.position = new Vector2(playerTr.position.x + inputVector.x * curSpeed, playerTr.position.y + inputVector.y * curSpeed);
+			transform.position = new Vector2(transform.position.x + inputVector.x * curSpeed, transform.position.y + inputVector.y * curSpeed);
 		}
 	}
 }
