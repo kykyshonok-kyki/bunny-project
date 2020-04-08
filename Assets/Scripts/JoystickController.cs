@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
-	private const float	secondActionScale = 0.85f;
+	private const float	secondActionScale = 0.75f;
 	private const float deadzoneScale = 0.25f;
 
 	private Image	joystick;
 	private Image	jPoint;
 	private Vector2	inputVector;
-	private float	JPointPos;
+	private float	jPointLevel;
 
 	private void	Start()
 	{
@@ -35,11 +35,11 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 				inputVector = inputVector.normalized;
 			jPoint.rectTransform.anchoredPosition = new Vector2 (inputVector.x * joystick.rectTransform.sizeDelta.x / 2, inputVector.y * joystick.rectTransform.sizeDelta.y / 2);
 			if (inputVector.magnitude < deadzoneScale)
-				JPointPos = 0;
+				jPointLevel = 0;
 			else if (inputVector.magnitude < secondActionScale)
-				JPointPos = 1;
+				jPointLevel = 1;
 			else
-				JPointPos = 2;
+				jPointLevel = 2;
 			inputVector = inputVector.normalized;
 		}
 	}
@@ -55,9 +55,9 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 		jPoint.rectTransform.anchoredPosition = inputVector;
 	}
 
-	public float	GetJPointPos()
+	public float	GetJPointLevel()
 	{
-		return (JPointPos);
+		return (jPointLevel);
 	}
 
 	public Vector2	GetVector()

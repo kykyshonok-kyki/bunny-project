@@ -6,16 +6,10 @@ public class BulletFly : MonoBehaviour
 {
 	public int		damage;
 	public float	speed;
-	private Vector3	direction = new Vector3(1, 0, 0);
 
 	void Start()
 	{
-		direction = transform.rotation * direction;
-	}
-
-	void Update()
-	{
-		transform.position = transform.position + direction * speed * Time.deltaTime;
+		GetComponent<Rigidbody2D>().velocity = transform.rotation * Vector3.right * speed;
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)

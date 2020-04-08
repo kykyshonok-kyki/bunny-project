@@ -29,13 +29,13 @@ public class ShootController : MonoBehaviour
 
 	private void	CharacterLookShoot()
 	{
-		float		action = jContr.GetJPointPos();
+		float		action = jContr.GetJPointLevel();
 		Vector2		inputVector = jContr.GetVector();
 		Quaternion	direction;
 
 		if (inputVector.magnitude != 0 & action != 0)
 		{
-			direction = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, jContr.GetVector().normalized));
+			direction = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, jContr.GetVector()));
 			transform.rotation = direction;
 			if (action == 2)
 				if (Time.time - lastShootTime >= fireRate)

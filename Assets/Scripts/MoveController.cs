@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveController : MonoBehaviour
 {
-	public Camera	camera;
+	public Camera	cam;
 
 	private JoystickController	jContr;
 
@@ -13,27 +13,25 @@ public class MoveController : MonoBehaviour
 		jContr = GameObject.FindGameObjectWithTag("MoveController").GetComponent<JoystickController>();
 	}
 
-	private void	Update()
+	private void	FixedUpdate()
 	{
 		CharacterMove();
 	}
 
+	private void	LateUpdate()
+	{
+		cam.GetComponent<Transform>().position = transform.position;
+	}
+
 	private void	CharacterMove()
 	{
-		float	curSpeed = jContr.GetJPointPos();
+		float	curSpeed = jContr.GetJPointLevel();
 		Vector2 inputVector = jContr.GetVector();
-		Vector2	newPos;
 
-		if (inputVector.magnitude != 0 & curSpeed != 0)
-		{
-			if (curSpeed == 1)
-				curSpeed = 2;
-			else
-				curSpeed = 6;
-			curSpeed *= Time.deltaTime;
-			newPos = new Vector2(transform.position.x + inputVector.x * curSpeed, transform.position.y + inputVector.y * curSpeed);
-			transform.position = newPos;
-			camera.transform.position = newPos;
-		}
+		if (curSpeed == 1)
+			curSpeed = 2;
+		else if (curSpeed == 2)
+			curSpeed = 6;
+		GetComponent<Rigidbody2D>().velocity = inputVector * curSpeed;
 	}
 }
