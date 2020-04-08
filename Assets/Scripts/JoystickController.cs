@@ -9,10 +9,9 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 	private const float	secondActionScale = 0.85f;
 	private const float deadzoneScale = 0.25f;
 
-	private Image joystick;
-	private Image jPoint;
-	private Vector2 inputVector;
-
+	private Image	joystick;
+	private Image	jPoint;
+	private Vector2	inputVector;
 	private float	JPointPos;
 
 	private void	Start()

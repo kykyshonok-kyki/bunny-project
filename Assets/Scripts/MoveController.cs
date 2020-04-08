@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoveController : MonoBehaviour
 {
+	public Camera	camera;
+
 	private JoystickController	jContr;
 
 	private void	Start()
@@ -20,6 +22,7 @@ public class MoveController : MonoBehaviour
 	{
 		float	curSpeed = jContr.GetJPointPos();
 		Vector2 inputVector = jContr.GetVector();
+		Vector2	newPos;
 
 		if (inputVector.magnitude != 0 & curSpeed != 0)
 		{
@@ -28,7 +31,9 @@ public class MoveController : MonoBehaviour
 			else
 				curSpeed = 6;
 			curSpeed *= Time.deltaTime;
-			transform.position = new Vector2(transform.position.x + inputVector.x * curSpeed, transform.position.y + inputVector.y * curSpeed);
+			newPos = new Vector2(transform.position.x + inputVector.x * curSpeed, transform.position.y + inputVector.y * curSpeed);
+			transform.position = newPos;
+			camera.transform.position = newPos;
 		}
 	}
 }

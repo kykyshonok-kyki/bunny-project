@@ -9,14 +9,17 @@ public class ShootController : MonoBehaviour
 	private GameObject	defBullet;
 	private Vector2		bulletStart;
 	private float		lastShootTime;
+	private float		fireRate;
 
 	private void	Start()
 	{
+		GameObject gun;
+		gun = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().GetChild(0).gameObject;
+
 		lastShootTime = -1;
-		defBullet = GameObject.FindGameObjectWithTag("DefBullet");
+		defBullet = gun.GetComponent<GunConfig>().bullet;
 		jContr = GameObject.FindGameObjectWithTag("ShootController").GetComponent<JoystickController>();
-		defBullet.GetComponent<BulletFly>().enabled = false;
-		defBullet.tag = "Bullet";
+		fireRate = gun.GetComponent<GunConfig>().fireRate;
 	}
 
 	private void	FixedUpdate()
@@ -35,11 +38,11 @@ public class ShootController : MonoBehaviour
 			direction = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, jContr.GetVector().normalized));
 			transform.rotation = direction;
 			if (action == 2)
-				if (Time.time - lastShootTime >= 1)
+				if (Time.time - lastShootTime >= fireRate)
 				{
 					lastShootTime = Time.time;
 					bulletStart = transform.GetChild(0).GetComponent<Transform>().GetChild(0).GetComponent<Transform>().position;
-					GameObject.Instantiate(defBullet, bulletStart, direction).GetComponent<BulletFly>().enabled = true;
+					GameObject.Instantiate(defBullet, bulletStart, direction);
 				}
 		}
 	}
