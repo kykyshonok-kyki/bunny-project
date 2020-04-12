@@ -4,34 +4,48 @@ using UnityEngine;
 
 public class MoveController : MonoBehaviour
 {
-	public Camera	cam;
+	private JoystickController jContr;
 
-	private JoystickController	jContr;
+	public Camera cam;
+	public GameObject healthBar;
+	public float walkSpeed;
+	public float runSpeed;
+	private Vector2 inputVector;
 
-	private void	Start()
+	private void Start()
 	{
 		jContr = GameObject.FindGameObjectWithTag("MoveController").GetComponent<JoystickController>();
 	}
 
-	private void	FixedUpdate()
+	private void Update()
+	{
+		inputVector = jContr.GetVector();
+	}
+
+	private void FixedUpdate()
 	{
 		CharacterMove();
 	}
 
-	private void	LateUpdate()
+	private void LateUpdate()
 	{
 		cam.GetComponent<Transform>().position = transform.position;
+		healthBar.GetComponent<Transform>().position = new Vector2(transform.position.x, transform.position.y + 0.7f);
 	}
 
-	private void	CharacterMove()
+	public void ChangePositionsBeforeClose()
 	{
-		float	curSpeed = jContr.GetJPointLevel();
-		Vector2 inputVector = jContr.GetVector();
+		LateUpdate();
+	}
+
+	private void CharacterMove()
+	{
+		float curSpeed = jContr.GetJPointLevel();
 
 		if (curSpeed == 1)
-			curSpeed = 2;
+			curSpeed = walkSpeed;
 		else if (curSpeed == 2)
-			curSpeed = 6;
+			curSpeed = runSpeed;
 		GetComponent<Rigidbody2D>().velocity = inputVector * curSpeed;
 	}
 }

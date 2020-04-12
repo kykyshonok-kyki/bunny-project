@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
-	private JoystickController	jContr;
+	private JoystickController jContr;
 
-	private GameObject	defBullet;
-	private Vector2		bulletStart;
-	private float		lastShootTime;
-	private float		fireRate;
+	private GameObject defBullet;
+	private Vector2 bulletStart;
+	private float lastShootTime;
+	private float fireRate;
+	private Vector2 inputVector;
 
-	private void	Start()
+	private void Start()
 	{
 		GameObject gun;
 		gun = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().GetChild(0).gameObject;
@@ -22,16 +23,21 @@ public class ShootController : MonoBehaviour
 		fireRate = gun.GetComponent<GunConfig>().fireRate;
 	}
 
-	private void	FixedUpdate()
+	private void Update()
+	{
+		inputVector = jContr.GetVector();
+	}
+	
+	private void FixedUpdate()
 	{
 		CharacterLookShoot();
 	}
 
-	private void	CharacterLookShoot()
+	private void CharacterLookShoot()
 	{
-		float		action = jContr.GetJPointLevel();
-		Vector2		inputVector = jContr.GetVector();
-		Quaternion	direction;
+		float action = jContr.GetJPointLevel();
+		Quaternion direction;
+		GameObject newBullet;
 
 		if (inputVector.magnitude != 0 & action != 0)
 		{
@@ -42,7 +48,8 @@ public class ShootController : MonoBehaviour
 				{
 					lastShootTime = Time.time;
 					bulletStart = transform.GetChild(0).GetComponent<Transform>().GetChild(0).GetComponent<Transform>().position;
-					GameObject.Instantiate(defBullet, bulletStart, direction);
+					newBullet = GameObject.Instantiate(defBullet, bulletStart, direction);
+					newBullet.GetComponent<Rigidbody2D>().velocity = newBullet.transform.rotation * Vector3.right * newBullet.GetComponent<BulletFly>().speed;
 				}
 		}
 	}

@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class WallHealth : MonoBehaviour
 {
-	public int		startHealth;
-	public Sprite	spriteSt1;
-	public Sprite	spriteSt2;
-	public Sprite	spriteSt3;
-	public Sprite	spriteSt4;
+	public int startHealth;
+	public Sprite spriteSt1;
+	public Sprite spriteSt2;
+	public Sprite spriteSt3;
+	public Sprite spriteSt4;
 
-	private int		maxHealth;
-	private int		health;
-	private int		healthSt2;
-	private int		healthSt3;
-	private int		healthSt4;
-	private bool	ifDestroyable;
+	private int maxHealth;
+	private int health;
+	private int healthSt2;
+	private int healthSt3;
+	private int healthSt4;
+	private bool ifDestroyable;
 
-	private void	Start()
+	private void Start()
 	{
 		enabled = false;
 		if (startHealth == -1)
@@ -33,7 +33,7 @@ public class WallHealth : MonoBehaviour
 		}
 	}
 
-	public void	ChangeHealth(int newMaxHealth)
+	public void ChangeHealth(int newMaxHealth)		//Вызывается при изменении максимального запаса здоровья у стены
 	{
 		maxHealth = newMaxHealth;
 		health = newMaxHealth;
@@ -42,7 +42,7 @@ public class WallHealth : MonoBehaviour
 		healthSt2 = healthSt4 * 3;
 	}
 
-	public int	Damage(int damage)
+	public int Damage(int damage)		//Вызывается при получении урона или ремонте стены
 	{
 		if (ifDestroyable)
 		{
@@ -77,7 +77,7 @@ public class WallHealth : MonoBehaviour
 		return 0;
 	}
 	
-	public bool	IfDestroyable()
+	public bool IfDestroyable()
 	{
 		return ifDestroyable;
 	}

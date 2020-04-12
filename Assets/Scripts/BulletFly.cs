@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class BulletFly : MonoBehaviour
 {
-	public int		damage;
-	public float	speed;
+	public int damage;
+	public float speed;
 
 	void Start()
 	{
-		GetComponent<Rigidbody2D>().velocity = transform.rotation * Vector3.right * speed;
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -17,6 +16,11 @@ public class BulletFly : MonoBehaviour
 		if (other.gameObject.tag == "Wall")
 		{
 			other.gameObject.GetComponent<WallHealth>().Damage(damage);
+			Destroy(gameObject);
+		}
+		if (other.gameObject.tag == "Player")
+		{
+			other.gameObject.GetComponent<PlayerHealth>().Damage(damage);
 			Destroy(gameObject);
 		}
 	}
