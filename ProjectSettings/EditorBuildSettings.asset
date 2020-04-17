@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/bunny.unity
+    guid: 3e39812d2b6989e428ee6ae4e6934664
   m_configObjects: {}
