@@ -9,6 +9,7 @@ TagManager:
   - DefBullet
   - Bullet
   - Wall
+  - Door
   layers:
   - Default
   - TransparentFX
