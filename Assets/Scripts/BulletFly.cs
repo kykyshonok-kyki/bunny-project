@@ -23,5 +23,10 @@ public class BulletFly : MonoBehaviour
 			other.gameObject.GetComponent<PlayerHealth>().Damage(damage);
 			Destroy(gameObject);
 		}
+		if (other.gameObject.tag == "Door")
+		{
+//			other.gameObject.GetComponent<PlayerHealth>().Damage(damage);
+			Destroy(gameObject);
+		}
 	}
 }
