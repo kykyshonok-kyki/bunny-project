@@ -15,6 +15,12 @@ public class ActionButtonTurning : MonoBehaviour
 			actionButton.GetComponent<ActionButton>().Active(collision.gameObject);
 			activeCollider = collision;
 		}
+		else if (collision.gameObject.tag == "Neutral")
+		{
+			Debug.Log("This works!");
+			actionButton.GetComponent<ActionButton>().Active(collision.gameObject);
+			activeCollider = collision;
+		}
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
@@ -25,6 +31,6 @@ public class ActionButtonTurning : MonoBehaviour
 	private void OnTriggerExit2D(Collider2D collision)
 	{
 		if (collision == activeCollider)
-			actionButton.GetComponent<ActionButton>().Disable();
+			actionButton.SetActive(false);
 	}
 }

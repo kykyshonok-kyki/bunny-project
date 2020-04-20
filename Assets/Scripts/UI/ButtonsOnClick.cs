@@ -26,5 +26,10 @@ public class ButtonsOnClick : MonoBehaviour
 			else
 				doorActions.CloseDoor();
 		}
+		else if (gameObjectOfActivity.tag == "Neutral")
+		{
+			gameObjectOfActivity.tag = "Teammate";
+		}
+		actionButton.SetActive(false);			//Добавить плавность отключению
 	}
 }

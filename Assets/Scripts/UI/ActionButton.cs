@@ -23,11 +23,12 @@ public class ActionButton : MonoBehaviour
 				transform.GetChild(0).GetComponent<Text>().text = "Close door";
 			gameObject.SetActive(true);
 		}
-	}
-
-	public void Disable()
-	{
-		gameObject.SetActive(false);
+		else if (gameObj.tag == "Neutral")
+		{
+			Debug.Log("And this works!");
+			transform.GetChild(0).GetComponent<Text>().text = "Recruit";
+			gameObject.SetActive(true);
+		}
 	}
 
 	public GameObject GetGameObject()

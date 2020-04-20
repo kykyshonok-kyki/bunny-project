@@ -58,7 +58,7 @@ public class DoorController : MonoBehaviour
 				doorState = 1;
 			}
 		}
-		else						     //Горизонтальная дверь с петлями справа
+		else							//Горизонтальная дверь с петлями справа
 		{
 			if (playerPos.y > transform.position.y)
 			{

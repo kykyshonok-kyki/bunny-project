@@ -48,7 +48,7 @@ public class ShootController : MonoBehaviour
 				{
 					lastShootTime = Time.time;
 					bulletStart = transform.GetChild(0).GetComponent<Transform>().GetChild(0).GetComponent<Transform>().position;
-					newBullet = GameObject.Instantiate(defBullet, bulletStart, direction);
+					newBullet = Instantiate(defBullet, bulletStart, direction);
 					newBullet.GetComponent<Rigidbody2D>().velocity = newBullet.transform.rotation * Vector3.right * newBullet.GetComponent<BulletFly>().speed;
 				}
 		}

@@ -10,6 +10,9 @@ TagManager:
   - Bullet
   - Wall
   - Door
+  - Neutral
+  - Teammate
+  - Character
   layers:
   - Default
   - TransparentFX
