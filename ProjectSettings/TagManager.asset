@@ -13,6 +13,7 @@ TagManager:
   - Neutral
   - Teammate
   - Character
+  - CharactersList
   layers:
   - Default
   - TransparentFX

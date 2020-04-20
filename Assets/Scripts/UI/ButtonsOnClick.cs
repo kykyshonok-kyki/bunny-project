@@ -29,6 +29,7 @@ public class ButtonsOnClick : MonoBehaviour
 		else if (gameObjectOfActivity.tag == "Neutral")
 		{
 			gameObjectOfActivity.tag = "Teammate";
+			GameObject.FindGameObjectWithTag("CharactersList").GetComponent<ShowingCharactersList>().NewTeammate(gameObjectOfActivity);
 		}
 		actionButton.SetActive(false);			//Добавить плавность отключению
 	}

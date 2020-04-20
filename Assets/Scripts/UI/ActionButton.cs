@@ -25,7 +25,6 @@ public class ActionButton : MonoBehaviour
 		}
 		else if (gameObj.tag == "Neutral")
 		{
-			Debug.Log("And this works!");
 			transform.GetChild(0).GetComponent<Text>().text = "Recruit";
 			gameObject.SetActive(true);
 		}

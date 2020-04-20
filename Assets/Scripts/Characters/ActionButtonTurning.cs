@@ -17,7 +17,6 @@ public class ActionButtonTurning : MonoBehaviour
 		}
 		else if (collision.gameObject.tag == "Neutral")
 		{
-			Debug.Log("This works!");
 			actionButton.GetComponent<ActionButton>().Active(collision.gameObject);
 			activeCollider = collision;
 		}
