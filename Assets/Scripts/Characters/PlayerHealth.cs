@@ -41,4 +41,9 @@ public class PlayerHealth : MonoBehaviour
 			healthBar.SetHelth(maxHealth, health);
 		}
 	}
+
+	public int GetHealth()
+	{
+		return (health);
+	}
 }

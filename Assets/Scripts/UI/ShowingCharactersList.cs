@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ShowingCharactersList : MonoBehaviour
 {
-	public GameObject characterPrefab;
 	private short charactersCount;
 
 	void Start()
@@ -14,6 +13,7 @@ public class ShowingCharactersList : MonoBehaviour
 
 		playerName = GameObject.FindGameObjectWithTag("Player").transform.parent.name;
 		transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = playerName;
+		transform.GetComponent<CharacterFromList>().characters[0] = GameObject.FindGameObjectWithTag("Player");
 		charactersCount = 1;
 	}
 
@@ -22,9 +22,13 @@ public class ShowingCharactersList : MonoBehaviour
 		string characterName = teammate.transform.parent.name;
 		Transform newCharacter;
 
-		newCharacter = transform.GetChild(charactersCount);
-		newCharacter.transform.GetChild(0).GetComponent<Text>().text = characterName;
-		newCharacter.gameObject.SetActive(true);
-		charactersCount++;
+		if (charactersCount < 5)
+		{
+			newCharacter = transform.GetChild(charactersCount);
+			newCharacter.transform.GetChild(0).GetComponent<Text>().text = characterName;
+			transform.GetComponent<CharacterFromList>().characters[charactersCount] = teammate;
+			newCharacter.gameObject.SetActive(true);
+			charactersCount++;
+		}
 	}
 }

@@ -15,7 +15,7 @@ public class ShootController : MonoBehaviour
 	private void Start()
 	{
 		GameObject gun;
-		gun = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().GetChild(0).gameObject;
+		gun = gameObject.GetComponent<Transform>().GetChild(0).gameObject;
 
 		lastShootTime = -1;
 		defBullet = gun.GetComponent<GunConfig>().bullet;
