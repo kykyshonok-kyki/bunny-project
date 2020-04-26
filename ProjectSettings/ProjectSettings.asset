@@ -159,6 +159,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: ru.Nezide.Bunny
     Standalone: com.Company.ProductName
+    iOS: ru.Nezide.Bunny
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16

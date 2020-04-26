@@ -9,7 +9,7 @@ public class ButtonsOnClick : MonoBehaviour
 
 	public void Reset()
 	{
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene("Main_menu");
 	}
 
 	public void Action()

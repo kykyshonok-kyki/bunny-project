@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/bunny.unity
+    path: Assets/Scenes/Main_menu.unity
+    guid: fc03eb02b07363347953841cdedb2cca
+  - enabled: 1
+    path: Assets/Scenes/Play_test.unity
     guid: 3e39812d2b6989e428ee6ae4e6934664
   m_configObjects: {}
