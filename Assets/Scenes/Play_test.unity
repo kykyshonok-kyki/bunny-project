@@ -2715,7 +2715,7 @@ GameObject:
   - component: {fileID: 350708199}
   - component: {fileID: 350708198}
   m_Layer: 5
-  m_Name: Reset
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6079,7 +6079,7 @@ RectTransform:
   m_GameObject: {fileID: 1440325510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 1598241672}
   m_RootOrder: 1
@@ -6930,6 +6930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e73b8f17837bec47acab567cc8eff67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAnchorOnLeft: 1
 --- !u!114 &1598241674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7854,7 +7855,7 @@ RectTransform:
   m_GameObject: {fileID: 2030139994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 2140708517}
   m_RootOrder: 1
@@ -7967,7 +7968,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reset
+  m_Text: Main menu
 --- !u!222 &2042438542
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8221,9 +8222,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -300, y: 50}
+  m_AnchoredPosition: {x: -50, y: 50}
   m_SizeDelta: {x: 250, y: 250}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &2140708518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8236,6 +8237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e73b8f17837bec47acab567cc8eff67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAnchorOnLeft: 0
 --- !u!114 &2140708519
 MonoBehaviour:
   m_ObjectHideFlags: 0

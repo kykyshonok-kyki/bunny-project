@@ -6,9 +6,11 @@ using UnityEngine.UI;
 
 public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
-	private const float secondActionScale = 0.85f;
+	public bool isAnchorOnLeft;
+
 	private const float deadzoneScale = 0.15f;
 
+	private float secondActionScale;
 	private Image joystick;
 	private Image jPoint;
 	private Vector2 inputVector;
@@ -16,8 +18,10 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
 	private void Start()
 	{
+		secondActionScale = PlayerPrefs.GetFloat("Joystick second zone size");
 		joystick = GetComponent<Image>();
 		jPoint = transform.GetChild(1).GetComponent<Image>();
+		transform.localScale = new Vector2 (PlayerPrefs.GetFloat("Joystick size"), PlayerPrefs.GetFloat("Joystick size"));
 		transform.GetChild(0).GetComponent<Image>().rectTransform.localScale = new Vector2(secondActionScale, secondActionScale);
 	}
 
@@ -28,7 +32,10 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 		{
 			pos.x = pos.x / joystick.rectTransform.sizeDelta.x;
 			pos.y = pos.y / joystick.rectTransform.sizeDelta.y;
-			inputVector.x = pos.x * 2 - 1;
+			if (isAnchorOnLeft)
+				inputVector.x = pos.x * 2 - 1;
+			else
+				inputVector.x = pos.x * 2 + 1;
 			inputVector.y = pos.y * 2 - 1;
 
 			if (inputVector.magnitude > 1)
