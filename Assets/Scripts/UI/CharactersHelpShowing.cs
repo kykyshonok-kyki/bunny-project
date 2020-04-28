@@ -26,7 +26,7 @@ public class CharactersHelpShowing : MonoBehaviour
 		{
 			isUsing = true;
 			enabled = true;
-			transform.position = new Vector2(transform.position.x, pos);
+			transform.localPosition = new Vector2(transform.localPosition.x, pos);
 			color.a = 0.001f;
 		}
 	}

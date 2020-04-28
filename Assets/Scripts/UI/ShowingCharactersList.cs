@@ -29,7 +29,7 @@ public class ShowingCharactersList : MonoBehaviour
 			transform.GetComponent<CharacterFromList>().characters[charactersCount] = teammate;
 			newCharacter.GetComponent<Image>().color = teammate.GetComponent<SpriteRenderer>().color;
 			newCharacter.gameObject.SetActive(true);
-			transform.GetChild(5).GetComponent<CharactersHelpShowing>().Show(newCharacter.transform.position.y);
+			transform.GetChild(5).GetComponent<CharactersHelpShowing>().Show(newCharacter.transform.localPosition.y);
 			charactersCount++;
 		}
 	}
