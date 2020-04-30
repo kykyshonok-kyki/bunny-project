@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1399270145}
-  healthBar: {fileID: 1507509880}
+  healthBar: {fileID: 137105812}
   walkSpeed: 4
   runSpeed: 7
 --- !u!212 &166681317
@@ -8221,7 +8221,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 636.7, y: -104.09}
+  m_AnchoredPosition: {x: 636.7, y: -10}
   m_SizeDelta: {x: 413.9, y: 45}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2128160325

@@ -30,10 +30,18 @@ public class ShootController : MonoBehaviour
 	
 	private void FixedUpdate()
 	{
-		CharacterLookShoot();
+		if (PlayerPrefs.GetInt("Shoot controller type", 0) == 0)
+			JoystickShoot();
+		else if (PlayerPrefs.GetInt("Shoot controller type", 1) == 1)
+			ScreenLook();
 	}
 
-	private void CharacterLookShoot()
+	private void ScreenLook()
+	{
+
+	}
+
+	private void JoystickShoot()
 	{
 		float action = jContr.GetJPointLevel();
 		Quaternion direction;
