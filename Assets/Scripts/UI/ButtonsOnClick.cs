@@ -6,6 +6,22 @@ using UnityEngine.SceneManagement;
 public class ButtonsOnClick : MonoBehaviour
 {
 	public GameObject actionButton;
+	public GameObject shootJoystick;
+	public GameObject shootSwipeControl;
+
+	private void Start()
+	{
+		if (PlayerPrefs.GetInt("View control type", 0) == 0)
+		{
+			shootJoystick.SetActive(true);
+			shootSwipeControl.SetActive(false);
+		}
+		else
+		{
+			shootJoystick.SetActive(false);
+			shootSwipeControl.SetActive(true);
+		}
+	}
 
 	public void Reset()
 	{

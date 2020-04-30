@@ -1,9 +1,13 @@
 ﻿//Made by kyki (neskajju@mail.ru) in April 2020
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootController : MonoBehaviour
 {
+	public GameObject canvas;
+	public Toggle shootToggle;
+
 	private JoystickController jContr;
 
 	private GameObject defBullet;
@@ -19,26 +23,45 @@ public class ShootController : MonoBehaviour
 
 		lastShootTime = -1;
 		defBullet = gun.GetComponent<GunConfig>().bullet;
-		jContr = GameObject.FindGameObjectWithTag("ShootController").GetComponent<JoystickController>();
+		if (PlayerPrefs.GetInt("View control type", 0) == 0)
+			jContr = GameObject.FindGameObjectWithTag("ShootController").GetComponent<JoystickController>();
 		fireRate = gun.GetComponent<GunConfig>().fireRate;
 	}
 
 	private void Update()
 	{
-		inputVector = jContr.GetVector();
+		if (PlayerPrefs.GetInt("View control type", 0) == 0)
+			inputVector = jContr.GetVector();
+		else if (PlayerPrefs.GetInt("View control type", 1) == 1)
+			inputVector = canvas.GetComponent<TouchShootController>().GetVector();
 	}
-	
+
 	private void FixedUpdate()
 	{
-		if (PlayerPrefs.GetInt("Shoot controller type", 0) == 0)
+		if (PlayerPrefs.GetInt("View control type", 0) == 0)
 			JoystickShoot();
-		else if (PlayerPrefs.GetInt("Shoot controller type", 1) == 1)
+		else if (PlayerPrefs.GetInt("View control type", 1) == 1)
 			ScreenLook();
 	}
 
 	private void ScreenLook()
 	{
+		Quaternion direction;
+		GameObject newBullet;
 
+		if (inputVector.magnitude != 0)
+		{
+			direction = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, inputVector));
+			transform.rotation = direction;
+			if (shootToggle.isOn)
+				if (Time.time - lastShootTime >= fireRate)
+				{
+					lastShootTime = Time.time;
+					bulletStart = transform.GetChild(0).GetComponent<Transform>().GetChild(0).GetComponent<Transform>().position;
+					newBullet = Instantiate(defBullet, bulletStart, direction);
+					newBullet.GetComponent<Rigidbody2D>().velocity = newBullet.transform.rotation * Vector2.right * newBullet.GetComponent<BulletFly>().speed;
+				}
+		}
 	}
 
 	private void JoystickShoot()
@@ -49,7 +72,7 @@ public class ShootController : MonoBehaviour
 
 		if (inputVector.magnitude != 0 & action != 0)
 		{
-			direction = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, jContr.GetVector()));
+			direction = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, inputVector));
 			transform.rotation = direction;
 			if (action == 2)
 				if (Time.time - lastShootTime >= fireRate)

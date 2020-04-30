@@ -19,7 +19,7 @@ public class MainMenuButtons : MonoBehaviour
 	{
 		sliderJSize.value = PlayerPrefs.GetFloat("Joystick size", 1f);
 		sliderJZoneSize.value = PlayerPrefs.GetFloat("Joystick second zone size", 0.7f);
-		viewController.value = PlayerPrefs.GetInt("Shoot controller type", 0);
+		viewController.value = PlayerPrefs.GetInt("View control type", 0);
 	}
 
 	public void LoadTestScene()
@@ -41,7 +41,7 @@ public class MainMenuButtons : MonoBehaviour
 
 	public void ViewControlChoose(int value)
 	{
-		PlayerPrefs.SetInt("Shoot controller type", value);
+		PlayerPrefs.SetInt("View control type", value);
 		viewSettingsToggleText.transform.parent.GetComponent<Toggle>().isOn = false;
 	}
 
@@ -49,7 +49,7 @@ public class MainMenuButtons : MonoBehaviour
 	{
 		if (isOn)
 		{
-			if (PlayerPrefs.GetInt("Shoot controller type", 0) == 0)
+			if (PlayerPrefs.GetInt("View control type", 0) == 0)
 			{
 				joystickSettings.SetActive(true);
 				joystick.gameObject.SetActive(true);
