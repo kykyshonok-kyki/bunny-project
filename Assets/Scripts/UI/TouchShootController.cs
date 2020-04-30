@@ -26,13 +26,15 @@ public class TouchShootController : MonoBehaviour, IDragHandler, IPointerUpHandl
 	public void OnPointerUp(PointerEventData eventData)
 	{
 		lookVector = new Vector2(0, 0);
+		isWork = false;
 	}
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
 		string objectName = eventData.pointerCurrentRaycast.gameObject.name;
 
-		if (objectName != "MoveJoystick" & objectName != "CharactersList" & objectName != "Action" & objectName != "MainMenu" & objectName != "ShootToggle")
+		if (objectName != "MoveJoystick" & objectName != "CharactersList" & objectName != "Action" & objectName != "MainMenu" & objectName != "ShootToggle"
+			& objectName != "LaserToggle")
 		{
 			isWork = true;
 			OnDrag(eventData);

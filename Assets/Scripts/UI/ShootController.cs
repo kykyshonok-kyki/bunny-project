@@ -7,6 +7,8 @@ public class ShootController : MonoBehaviour
 {
 	public GameObject canvas;
 	public Toggle shootToggle;
+	public GameObject laser;
+	public bool isLaser;
 
 	private JoystickController jContr;
 
@@ -32,7 +34,7 @@ public class ShootController : MonoBehaviour
 	{
 		if (PlayerPrefs.GetInt("View control type", 0) == 0)
 			inputVector = jContr.GetVector();
-		else if (PlayerPrefs.GetInt("View control type", 1) == 1)
+		else if (PlayerPrefs.GetInt("View control type") == 1)
 			inputVector = canvas.GetComponent<TouchShootController>().GetVector();
 	}
 
@@ -40,7 +42,7 @@ public class ShootController : MonoBehaviour
 	{
 		if (PlayerPrefs.GetInt("View control type", 0) == 0)
 			JoystickShoot();
-		else if (PlayerPrefs.GetInt("View control type", 1) == 1)
+		else if (PlayerPrefs.GetInt("View control type") == 1)
 			ScreenLook();
 	}
 
