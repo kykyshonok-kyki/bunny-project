@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "NewWeaponData", menuName = "Data/Items/Weapons", order = 51)]
 public class Weapons : Item
 {
     //Immanent components
@@ -14,9 +15,9 @@ public class Weapons : Item
     public WeaponSize weaponSize;
 
     //Changing components
-    public int currentMagazineSize;
+    //public int currentMagazineSize;
 }
 
 public enum AmmoType { }
 public enum WeaponType { }
-public enum WeaponSize { }
+public enum WeaponSize {small, medium }

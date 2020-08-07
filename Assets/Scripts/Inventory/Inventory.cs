@@ -10,13 +10,15 @@ public class Inventory : MonoBehaviour
     public GameObject inventoryButton;
     public GameObject mainUI;
 
-    List<Item> item;
+    List<Item> list;
 
+    private int capacity;
+    private int currentCapacity;
     void Start()
     {
         
         gameObject.SetActive(false);
-        item = new List<Item>();
+        list = new List<Item>();
         
 
     }

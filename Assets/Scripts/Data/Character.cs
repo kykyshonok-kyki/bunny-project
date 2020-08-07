@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bagpack : Item
+public class Character : ScriptableObject
 {
-    //Constant
+    public int maxHealth;
     public int capacity;
-    //
 }
