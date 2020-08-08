@@ -10,6 +10,8 @@ public class Item : ScriptableObject
     public int id;
     public bool isStackable;
 
+    public Sprite image;
+
     public float weightItem;
     [Multiline()]
     public string descriptionItem;

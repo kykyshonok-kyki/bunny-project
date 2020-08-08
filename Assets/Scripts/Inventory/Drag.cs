@@ -3,32 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
     public static GameObject draggedItem;
-    Inventory inventory;
+    InventoryCharacter inventory;
     
     void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("").GetComponent<Inventory>();
+        inventory = GameObject.FindGameObjectWithTag("").GetComponent<InventoryCharacter>();
     }
 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        draggedItem = gameObject;
+        inventory.dragPrefab.SetActive(true);
+        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        inventory.dragPrefab.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        draggedItem = null;
+        inventory.dragPrefab.SetActive(false);
     }
 
 
