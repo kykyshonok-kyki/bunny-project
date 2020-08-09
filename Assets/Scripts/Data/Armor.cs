@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewArmorData", menuName = "Data/Items/Armors", order = 52)]
+[CreateAssetMenu(fileName = "NewArmorData", menuName = "Data/Items/Armors", order = 53)]
 public class Armor : Item
 {
     //Immanent components

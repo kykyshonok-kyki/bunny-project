@@ -3,20 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[CreateAssetMenu(fileName = "NewItemData", menuName = "Data/Item", order = 51)]
 public class Item : ScriptableObject
 {
     public string nameItem;
     public int id;
-    public bool isStackable;
-
-    public Sprite image;
 
     public float weightItem;
-    [Multiline()]
+    
     public string descriptionItem;
-    public string pathIcon;
-    public string pathPrefab;
-
-    //public int countItem;
+    
 }

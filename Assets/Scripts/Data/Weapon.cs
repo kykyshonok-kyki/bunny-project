@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewWeaponData", menuName = "Data/Items/Weapons", order = 51)]
+[CreateAssetMenu(fileName = "NewWeaponData", menuName = "Data/Items/Weapons", order = 52)]
 public class Weapons : Item
 {
     //Immanent components
