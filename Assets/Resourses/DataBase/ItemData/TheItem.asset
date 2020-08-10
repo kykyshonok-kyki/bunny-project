@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameItem: TheFreakingOne
   id: 0
+  volumeItem: 1
   weightItem: 1
   descriptionItem: An utterly awful item

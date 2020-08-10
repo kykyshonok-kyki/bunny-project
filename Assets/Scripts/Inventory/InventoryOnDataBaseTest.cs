@@ -13,9 +13,9 @@ public class InventoryOnDataBaseTest : MonoBehaviour
 
     public GameObject cellPrefab;
     
-    public float stockMaxWeight;
-    public float maxWeight;
-    private float currentWeight;
+    public float stockMaxCapacity;
+    public float maxCapacity;
+    private float currentVolume;
 
 
     public GameObject buttonAddAnItem;
@@ -30,7 +30,7 @@ public class InventoryOnDataBaseTest : MonoBehaviour
         Debug.Log("Inventory created");
     }
     //Checking the current amount of both empty and full slots in the inventory
-    private int Checking()
+    private int CheckingCellsAmount()
     {
         int cellAmount = 0;
         cellAmount = list.Count;
@@ -41,16 +41,16 @@ public class InventoryOnDataBaseTest : MonoBehaviour
     //Adds an item into one's inventory
     public void AddItem(Item item)
     {
-        float itemWeight = item.weightItem;
-        if (currentWeight + itemWeight < maxWeight)
+        float itemVolume = item.volumeItem;
+        if (currentVolume + itemVolume <= maxCapacity)
         {
-            int maxIndex = Checking() - 1;
+            int maxIndex = CheckingCellsAmount() - 1;
 
             list.Add(item);
             list[maxIndex + 1] = item;
 
-            currentWeight += itemWeight;
-            Debug.Log("currentWeight = " + currentWeight);
+            currentVolume += itemVolume;
+            Debug.Log("currentVolume = " + currentVolume);
 
             GameObject newCell = Instantiate<GameObject>(cellPrefab);
             newCell.transform.SetParent(gameObject.transform.GetChild(0).transform.GetChild(0).transform);
@@ -65,7 +65,7 @@ public class InventoryOnDataBaseTest : MonoBehaviour
     {
         Destroy(invItem);
         list.Remove(item);
-        currentWeight += -item.weightItem;
+        currentVolume += -item.volumeItem;
     }
 
 
@@ -87,9 +87,6 @@ public class InventoryOnDataBaseTest : MonoBehaviour
     {
         AddItem(theItem);
     }
-
-  
-
 
 
 
