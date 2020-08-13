@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DisplayInventory : MonoBehaviour
 {
     public InventoryObject inventory;
-
+    public GameObject inventoryPrefab;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
 
     private void Start()
@@ -22,29 +22,30 @@ public class DisplayInventory : MonoBehaviour
 
     public void CreateDisplay()
     {
-        for (int i = 0; i < inventory.Container.Count; i++)
+        for (int i = 0; i < inventory.Container.Items.Count; i++)
         {
-            var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform );
-            obj.GetComponentInChildren<Text>().text = inventory.Container[i].item.nameItem;
+            var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform );
+            
+            obj.GetComponentInChildren<Text>().text = inventory.Container.Items[i].item.name;
 
-            itemsDisplayed.Add(inventory.Container[i], obj);
+            itemsDisplayed.Add(inventory.Container.Items[i], obj);
         }
     }
 
     public void UpdateDisplay()
     {
-        for (int i = 0; i < inventory.Container.Count; i++)
+        for (int i = 0; i < inventory.Container.Items.Count; i++)
         {
-            if (itemsDisplayed.ContainsKey(inventory.Container[i]))
+            if (itemsDisplayed.ContainsKey(inventory.Container.Items[i]))
             {
-                itemsDisplayed[inventory.Container[i]].GetComponentInChildren<Text>().text = inventory.Container[i].item.nameItem;
+                itemsDisplayed[inventory.Container.Items[i]].GetComponentInChildren<Text>().text = inventory.Container.Items[i].item.name;
             }
             else
             {
-                var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
-                obj.GetComponentInChildren<Text>().text = inventory.Container[i].item.nameItem;
+                var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
+                obj.GetComponentInChildren<Text>().text = inventory.Container.Items[i].item.name;
 
-                itemsDisplayed.Add(inventory.Container[i], obj);
+                itemsDisplayed.Add(inventory.Container.Items[i], obj);
             }
         }
     }
