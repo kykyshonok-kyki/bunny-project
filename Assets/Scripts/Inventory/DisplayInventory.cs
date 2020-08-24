@@ -2,10 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DisplayInventory : MonoBehaviour
 {
+    //public MouseItem mouseItem;
+
     public InventoryObject inventory;
     public GameObject inventoryPrefab;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
@@ -49,4 +53,57 @@ public class DisplayInventory : MonoBehaviour
             }
         }
     }
+
+    //Hui znaet
+    /*
+    private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
+    {
+        EventTrigger trigger = obj.GetComponent<EventTrigger>();
+        var eventTrigger = new EventTrigger.Entry();
+        eventTrigger.eventID = type;
+        eventTrigger.callback.AddListener(action);
+        trigger.triggers.Add(eventTrigger);
+    }
+
+
+    public void OnEnter(GameObject obj)
+    {
+        
+    }
+    public void OnExit(GameObject obj)
+    {
+
+    }
+    public void OnDragStart(GameObject obj)
+    {
+        
+        var mouseObject = new GameObject();
+        var rt = mouseObject.AddComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(50, 50);
+        mouseObject.transform.SetParent(transform.parent);
+        var img = mouseObject.AddComponent<Image>();
+
+        img.raycastTarget = false;
+
+
+    }
+    public void OnDragEnd(GameObject obj)
+    {
+
+    }
+    public void OnDrag(GameObject obj)
+    {
+
+    }
+    */
 }
+
+/*
+public class MouseItem
+{
+    public GameObject obj;
+    public InventorySlot item;
+    public InventorySlot hoverItem;
+    public GameObject hoverObj;
+}
+*/

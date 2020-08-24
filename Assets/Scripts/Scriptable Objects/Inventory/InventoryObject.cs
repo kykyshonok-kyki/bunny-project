@@ -13,13 +13,14 @@ public class InventoryObject : ScriptableObject
 {
     public float stockCapacity;
     public float maxCapacity;
-    public float currentCapacity;
+    private float currentCapacity;
     public ItemDataBaseObject database;
     public string savePath;
     public Inventory Container;
 
 
 
+    //Метод добавления предмета в инвентарь
     public void AddItem(Item _item, int _amount)
     {
         if (currentCapacity + _item.volume <= maxCapacity)
@@ -29,7 +30,7 @@ public class InventoryObject : ScriptableObject
             {
                 for (int i = 0; i < Container.Items.Count; i++)
                 {
-                    if (Container.Items[i].item.id == _item.id)
+                    if (Container.Items[i].id == _item.id)
                     {
                         Container.Items[i].AddAmount(_amount);
                         hasItem = true;
@@ -47,21 +48,28 @@ public class InventoryObject : ScriptableObject
 
 
 
-
-    public void RemoveItem()
+    //Метод удаления предмета из инвентаря, в качестве параметра в функцию передаётся номер предмета в List
+    public void RemoveItem(int _i)
     {
-
+        if (Container.Items[_i].amount > 1)
+        {
+            Container.Items[_i].RemoveAmount(1);
+        }
+        else
+        {
+            Container.Items.RemoveAt(_i);
+        }
     }
 
 
+
+
+
+    //Раздел, отвечающий за сохранение, загрузку и удаление инвентаря
     [ContextMenu("Save")]
     public void Save()
     {
-        //string saveData = JsonUtility.ToJson(this, true);
-        //BinaryFormatter bf = new BinaryFormatter();
-        //FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
-        //bf.Serialize(file, saveData);
-        //file.Close();
+
 
         IFormatter formatter = new BinaryFormatter();
         Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Create, FileAccess.Write);
@@ -74,10 +82,7 @@ public class InventoryObject : ScriptableObject
     {
         if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
         {
-            //    BinaryFormatter bf = new BinaryFormatter();
-            //    FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
-            //    JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
-            //    file.Close();
+
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);
             Container = (Inventory)formatter.Deserialize(stream);
@@ -92,6 +97,7 @@ public class InventoryObject : ScriptableObject
     {
         Container = new Inventory();
     }
+    //Конец раздела
 }
 
 
@@ -119,5 +125,10 @@ public class InventorySlot
     public void AddAmount(int value)
     {
         amount += value;
+    }
+
+    public void RemoveAmount(int value)
+    {
+        amount -= value;
     }
 }

@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2114138d6e5a8104782ef7105100e6b9, type: 3}
-  m_Name: CharackterTestInventory
+  m_Name: TestMPCInventory
   m_EditorClassIdentifier: 
-  Container: []
   stockCapacity: 10
   maxCapacity: 10
-  currentCapacity: 0
+  database: {fileID: 11400000, guid: 5671a34112a71654d9006eea2eeaf56f, type: 2}
+  savePath: 
+  Container:
+    Items: []

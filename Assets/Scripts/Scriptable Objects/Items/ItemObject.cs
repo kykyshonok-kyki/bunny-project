@@ -12,7 +12,7 @@ public abstract class ItemObject : ScriptableObject
     public ItemType type;
     public float weightItem;
     public float volumeItem;
-    public float value;
+    public float costValue;
     public bool isStackable;
     //public GameObject prefab;
 
