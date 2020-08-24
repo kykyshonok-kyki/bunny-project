@@ -18,10 +18,10 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
 	private void Start()
 	{
-		secondActionScale = PlayerPrefs.GetFloat("Joystick second zone size", 0.7f);
+		secondActionScale = PlayerPrefs.GetFloat("Joystick second zone size");
 		joystick = GetComponent<Image>();
 		jPoint = transform.GetChild(1).GetComponent<Image>();
-		transform.localScale = new Vector2 (PlayerPrefs.GetFloat("Joystick size", 1), PlayerPrefs.GetFloat("Joystick size", 1));
+		transform.localScale = new Vector2 (PlayerPrefs.GetFloat("Joystick size"), PlayerPrefs.GetFloat("Joystick size"));
 		transform.GetChild(0).GetComponent<Image>().rectTransform.localScale = new Vector2(secondActionScale, secondActionScale);
 	}
 
