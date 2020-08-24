@@ -1,10 +1,7 @@
 ﻿//made by Nord
 
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.SceneManagement;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventoryOnDataBaseTest : MonoBehaviour
