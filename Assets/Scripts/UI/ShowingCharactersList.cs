@@ -27,7 +27,6 @@ public class ShowingCharactersList : MonoBehaviour
 			newCharacter = transform.GetChild(charactersCount);
 			newCharacter.transform.GetChild(0).GetComponent<Text>().text = characterName;
 			transform.GetComponent<CharacterFromList>().characters[charactersCount] = teammate;
-			newCharacter.GetComponent<Image>().color = teammate.GetComponent<SpriteRenderer>().color;
 			newCharacter.gameObject.SetActive(true);
 			transform.GetChild(5).GetComponent<CharactersHelpShowing>().Show(newCharacter.transform.localPosition.y);
 			charactersCount++;

@@ -7,8 +7,6 @@ public class ShootController : MonoBehaviour
 {
 	public GameObject canvas;
 	public Toggle shootToggle;
-	public GameObject laser;
-	public bool isLaser;
 
 	private JoystickController jContr;
 
