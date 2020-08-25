@@ -14,7 +14,6 @@ public abstract class ItemObject : ScriptableObject
     public float volumeItem;
     public float costValue;
     public bool isStackable;
-    //public GameObject prefab;
 
     public Item CreateItem()
     {
@@ -32,7 +31,7 @@ public enum ItemType
 }
 
 
-
+//Я всё ещё не смог осознать, зачем я в класс ItemObject зарядил класс Item
 [System.Serializable]
 public class Item
 {

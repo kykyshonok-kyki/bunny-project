@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Test Item Database
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 11400000, guid: f2fa10ee95906d24f965d02c5ae218b6, type: 2}
   - {fileID: 11400000, guid: 62d14963888d008478f0f4d7c95a0389, type: 2}
+  - {fileID: 11400000, guid: f2fa10ee95906d24f965d02c5ae218b6, type: 2}

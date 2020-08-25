@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item Database", menuName = "Items/Database")]
 public class ItemDataBaseObject : ScriptableObject//, ISerializationCallbackReceiver
 {
-/*    public ItemObject[] Items;
+    public ItemObject[] Items;
     public Dictionary<int, ItemObject> GetItem = new Dictionary<int, ItemObject>();
 
     public void OnAfterDeserialize()
@@ -22,5 +22,5 @@ public class ItemDataBaseObject : ScriptableObject//, ISerializationCallbackRece
     {
         GetItem = new Dictionary<int, ItemObject>();
     }
-*/
+
 }

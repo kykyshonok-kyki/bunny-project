@@ -24,6 +24,7 @@ public class DisplayInventory : MonoBehaviour
         UpdateDisplay();
     }
 
+    //Метод, генерирующий отображения инвентаря
     public void CreateDisplay()
     {
         for (int i = 0; i < inventory.Container.Items.Count; i++)
@@ -36,6 +37,8 @@ public class DisplayInventory : MonoBehaviour
         }
     }
 
+    //Метод, проверяющий "актуальность" отображаемого
+    //Надо будет как-нибудь переделать не через апдейт
     public void UpdateDisplay()
     {
         for (int i = 0; i < inventory.Container.Items.Count; i++)
@@ -53,6 +56,7 @@ public class DisplayInventory : MonoBehaviour
             }
         }
     }
+
 
     //Hui znaet
     /*
