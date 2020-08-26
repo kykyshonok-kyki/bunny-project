@@ -24,7 +24,7 @@ public class Laser : MonoBehaviour
         else
         {
             lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, transform.right * 100);
+            lineRenderer.SetPosition(1, transform.position + transform.right * 100);
         }
     }
 }
