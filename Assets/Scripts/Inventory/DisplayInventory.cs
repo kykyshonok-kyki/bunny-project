@@ -61,6 +61,12 @@ public class DisplayInventory : MonoBehaviour
         }
     }
 
+    //Вpеменное решение
+    public void DeleteSlot()
+    {
+
+    }
+
 
     //Hui znaet
     /*
