@@ -18,19 +18,26 @@ public class InventoryObject : ScriptableObject
     public string savePath;
     public Inventory Container;
 
-
-    private void checkCurrentCapacity()
+    public void Awake()
     {
+        CheckCurrentCapacity();
+    }
+    private void CheckCurrentCapacity()
+    {
+
         currentCapacity = 0;
         for (int i = 0; i < Container.Items.Count; i++)
         {
             currentCapacity += Container.Items[i].item.volume;
         }
+
     }
 
     //Метод добавления предмета в инвентарь
     public void AddItem(ItemObject _item, int _amount)
     {
+        CheckCurrentCapacity();
+
         if (currentCapacity + _item.volume <= maxCapacity)
         {
             bool hasItem = false;
@@ -59,6 +66,7 @@ public class InventoryObject : ScriptableObject
     //Метод удаления предмета из инвентаря, в качестве параметра в функцию передаётся номер предмета в List
     public void RemoveItem(int _i)
     {
+        CheckCurrentCapacity();
         if (Container.Items[_i].amount > 1)
         {
             Container.Items[_i].RemoveAmount(1);
@@ -67,6 +75,7 @@ public class InventoryObject : ScriptableObject
         {
             Container.Items.Remove(Container.Items[_i]);
         }
+        CheckCurrentCapacity();
     }
 
 
@@ -74,7 +83,7 @@ public class InventoryObject : ScriptableObject
 
 
     //Раздел, отвечающий за сохранение, загрузку и удаление инвентаря
-    [ContextMenu("Save")]
+    /*[ContextMenu("Save")]
     public void Save()
     {
 
@@ -105,7 +114,7 @@ public class InventoryObject : ScriptableObject
     {
         Container = new Inventory();
     }
-    //Конец раздела
+    //Конец раздела*/
 }
 
 
@@ -123,9 +132,9 @@ public class InventorySlot
     public int id;
     public ItemObject item;
     public int amount;
-    public InventorySlot(/*int _id,*/ ItemObject _item, int _amount)
+    public InventorySlot(ItemObject _item, int _amount)
     {
-        //id = _id;
+        id = _item.id;
         item = _item;
         amount = _amount;
     }

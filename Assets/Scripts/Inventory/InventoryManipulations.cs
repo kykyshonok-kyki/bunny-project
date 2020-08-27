@@ -31,6 +31,7 @@ public class InventoryManipulations : MonoBehaviour
 
    public void pressedTakeButton()
     {
+        Debug.Log("TakeButton");
         CheckCurrentInventories();
         var _item = lootedInventory.Container.Items[currentSlot].item;
 
@@ -38,10 +39,12 @@ public class InventoryManipulations : MonoBehaviour
         lootedInventory.RemoveItem(currentSlot);
 
         UpdateCurrentInventories();
+        Debug.Log("TakeButton");
     }
 
     public void pressedRemoveButton()
     {
+        Debug.Log("RemoveButton");
         CheckCurrentInventories();
         var _item = lootedInventory.Container.Items[currentSlot].item;
 
@@ -49,5 +52,6 @@ public class InventoryManipulations : MonoBehaviour
         characterInventory.RemoveItem(currentSlot);
 
         UpdateCurrentInventories();
+        Debug.Log("RemoveButton2");
     }
 }

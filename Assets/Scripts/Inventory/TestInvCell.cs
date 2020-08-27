@@ -35,30 +35,23 @@ public class TestInvCell : MonoBehaviour
 
     private void OffAll()
     {
-        int maxIndex = theInventoryPanel.GetComponent<DisplayInventory>().inventory.Container.Items.Count;
-        for (int i = 0; i < maxIndex; i++)
+       // if () 
         {
-            theInventoryPanel.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
-        }
+            int maxIndex = theInventoryPanel.GetComponent<DisplayInventory>().inventory.Container.Items.Count;
+            for (int i = 0; i < maxIndex; i++)
+            {
+                theInventoryPanel.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
+            }
 
-        int _maxIndex = theLootedPanel.GetComponent<DisplayInventory>().inventory.Container.Items.Count;
-        for (int i = 0; i < _maxIndex; i++)
-        {
-            theLootedPanel.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
+            int _maxIndex = theLootedPanel.GetComponent<DisplayInventory>().inventory.Container.Items.Count;
+            for (int i = 0; i < _maxIndex; i++)
+            {
+                theLootedPanel.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
+            }
         }
     }
 
 
-    /*private void Switch()
-    {
-        if (gameObject.transform.GetChild(1).gameObject.activeSelf)
-        {
-            gameObject.transform.GetChild(1).gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
-        }
-    }*/
+
 
 }

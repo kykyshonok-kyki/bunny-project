@@ -1,6 +1,7 @@
 ﻿//made by Kurochitskiy nicholasnordwind@gmail.com
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -12,13 +13,18 @@ public class DisplayInventory : MonoBehaviour
 
     public InventoryObject inventory;
     public GameObject inventoryPrefab;
-    Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
+    //public Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
 
     private void Start()
     {
+        Debug.Log("Govno");
         CreateDisplay();
     }
 
+    public void OnApplicationQuit()
+    {
+        DeleteDisplay();
+    }
     /*private void Update()
     {
         UpdateDisplay();
@@ -29,13 +35,13 @@ public class DisplayInventory : MonoBehaviour
     {
         for (int i = 0; i < inventory.Container.Items.Count; i++)
         {
-            var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform );
+            Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform );
             
-            obj.GetComponentInChildren<Text>().text = inventory.Container.Items[i].item.name;
-
-            itemsDisplayed.Add(inventory.Container.Items[i], obj);
-            //Передача в скрипт ячейки инвентаря номер отображаемого слота в List
-            inventoryPrefab.GetComponent<TestInvCell>().numberInList = i;
+        }
+        for (int i = 0; i < inventory.Container.Items.Count; i++)
+        {
+            gameObject.transform.GetChild(i).gameObject.GetComponentInChildren<Text>().text = inventory.Container.Items[i].item.name;
+            gameObject.transform.GetChild(i).gameObject.GetComponent<TestInvCell>().numberInList = i;
         }
     }
 
@@ -43,7 +49,13 @@ public class DisplayInventory : MonoBehaviour
 
     public void UpdateDisplay()
     {
-        for (int i = 0; i < inventory.Container.Items.Count; i++)
+        //Временное решение!!!
+        DeleteDisplay();
+        CreateDisplay();
+
+
+
+        /*for (int i = 0; i < inventory.Container.Items.Count; i++)
         {
             if (itemsDisplayed.ContainsKey(inventory.Container.Items[i]))
             {
@@ -58,12 +70,19 @@ public class DisplayInventory : MonoBehaviour
                 itemsDisplayed.Add(inventory.Container.Items[i], obj);
                 inventoryPrefab.GetComponent<TestInvCell>().numberInList = i;
             }
-        }
+        }*/
     }
 
     //Вpеменное решение
-    public void DeleteSlot()
+
+
+    public void DeleteDisplay()
     {
+        Transform parent = gameObject.transform;
+        foreach (Transform child in parent)
+        {
+            Destroy(child.gameObject);
+        }
 
     }
 
