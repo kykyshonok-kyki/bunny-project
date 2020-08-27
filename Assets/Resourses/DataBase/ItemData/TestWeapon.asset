@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: TestWeapon
   m_EditorClassIdentifier: 
   id: 0
-  nameItem: 
-  descriptionItem: 
+  name: Weapon
+  description: 
   type: 0
-  weightItem: 1
-  volumeItem: 1
+  weight: 1
+  volume: 1
   costValue: 1
   isStackable: 0
   damage: 1

@@ -19,9 +19,5 @@ MonoBehaviour:
   Container:
     Items:
     - id: 0
-      item:
-        name: parasha
-        id: 0
-        volume: 1
-        isStackable: 0
+      item: {fileID: 11400000, guid: 62d14963888d008478f0f4d7c95a0389, type: 2}
       amount: 1

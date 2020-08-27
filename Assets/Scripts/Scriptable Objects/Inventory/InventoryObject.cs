@@ -19,9 +19,17 @@ public class InventoryObject : ScriptableObject
     public Inventory Container;
 
 
+    private void checkCurrentCapacity()
+    {
+        currentCapacity = 0;
+        for (int i = 0; i < Container.Items.Count; i++)
+        {
+            currentCapacity += Container.Items[i].item.volume;
+        }
+    }
 
     //Метод добавления предмета в инвентарь
-    public void AddItem(Item _item, int _amount)
+    public void AddItem(ItemObject _item, int _amount)
     {
         if (currentCapacity + _item.volume <= maxCapacity)
         {
@@ -40,7 +48,7 @@ public class InventoryObject : ScriptableObject
             }
             if (!hasItem)
             {
-                Container.Items.Add(new InventorySlot(_item.id, _item, _amount));
+                Container.Items.Add(new InventorySlot(_item, _amount));
             }
             currentCapacity += _item.volume;
         }
@@ -113,11 +121,11 @@ public class Inventory
 public class InventorySlot
 {
     public int id;
-    public Item item;
+    public ItemObject item;
     public int amount;
-    public InventorySlot(int _id, Item _item, int _amount)
+    public InventorySlot(/*int _id,*/ ItemObject _item, int _amount)
     {
-        id = _id;
+        //id = _id;
         item = _item;
         amount = _amount;
     }

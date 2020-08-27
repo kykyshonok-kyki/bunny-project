@@ -6,20 +6,20 @@ using UnityEngine;
 public abstract class ItemObject : ScriptableObject
 {
     public int id;
-    public string nameItem;
+    public new string name;
     [TextArea(15,20)]
-    public string descriptionItem;
+    public string description;
     public ItemType type;
-    public float weightItem;
-    public float volumeItem;
+    public float weight;
+    public float volume;
     public float costValue;
     public bool isStackable;
 
-    public Item CreateItem()
+    /*public Item CreateItem()
     {
         Item newItem = new Item(this);
         return newItem;
-    }
+    }*/
 }
 
 public enum ItemType
@@ -32,6 +32,7 @@ public enum ItemType
 
 
 //Я всё ещё не смог осознать, зачем я в класс ItemObject зарядил класс Item
+/*
 [System.Serializable]
 public class Item
 {
@@ -46,4 +47,4 @@ public class Item
         volume = item.volumeItem;
         isStackable = item.isStackable;
     }
-}
+}*/
