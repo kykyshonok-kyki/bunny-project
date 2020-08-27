@@ -33,6 +33,8 @@ public class PlayerHealth : MonoBehaviour
 			gameObject.GetComponent<MoveController>().enabled = false;
 			gameObject.GetComponent<ShootController>().enabled = false;
 			gameObject.GetComponent<MoveController>().ChangePositionsBeforeClose();
+			gameObject.GetComponent<FieldOfView>().enabled = false;
+			gameObject.GetComponent<MeshRenderer>().enabled = false;
 		}
 		else
 		{
