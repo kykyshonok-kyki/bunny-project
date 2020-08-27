@@ -26,23 +26,25 @@ public class InventoryManipulations : MonoBehaviour
         displayedLootedInventory.GetComponent<DisplayInventory>().inventory = lootedInventory;
     }
 
- /*   public void pressedTakeButton(int _i)
+   public void pressedTakeButton()
     {
 
-
-        var _item = lootedInventory.Container.Items[_i].item;
+        var _item = lootedInventory.Container.Items[currentSlot].item;
 
         characterInventory.AddItem(_item, 1);
-        lootedInventory.RemoveItem(_i);
+        lootedInventory.RemoveItem(currentSlot);
 
     }
 
-    public void pressedRemoveButton(GameObject invCell)
+    public void pressedRemoveButton()
     {
 
-        var _item = lootedInventory.Container.Items[_i].item;
+        var _item = lootedInventory.Container.Items[currentSlot].item;
 
-        characterInventory.RemoveItem(_i);
         lootedInventory.AddItem(_item, 1);
-    }*/
+        characterInventory.RemoveItem(currentSlot);
+
+        displayedCharacterInventory.GetComponent<DisplayInventory>().UpdateDisplay();
+        displayedLootedInventory.GetComponent<DisplayInventory>().UpdateDisplay();
+    }
 }

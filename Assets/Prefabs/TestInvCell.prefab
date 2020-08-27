@@ -193,7 +193,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: pressedRemoveButton
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad74ef632e379ff49ba1695a93a62ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberInList: 0
+  numberInList: 1
   theInventoryUI: {fileID: 0}
   theInventoryPanel: {fileID: 0}
   theLootedPanel: {fileID: 0}

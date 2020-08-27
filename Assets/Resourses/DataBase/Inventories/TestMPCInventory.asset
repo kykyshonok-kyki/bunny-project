@@ -17,4 +17,18 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: 5671a34112a71654d9006eea2eeaf56f, type: 2}
   savePath: 
   Container:
-    Items: []
+    Items:
+    - id: 0
+      item:
+        name: parasha
+        id: 0
+        volume: 1
+        isStackable: 0
+      amount: 1
+    - id: 0
+      item:
+        name: parasha
+        id: 0
+        volume: 1
+        isStackable: 0
+      amount: 1

@@ -20,8 +20,8 @@ MonoBehaviour:
     Items:
     - id: 0
       item:
-        name: 
+        name: parasha
         id: 0
-        volume: 0
+        volume: 1
         isStackable: 0
       amount: 1
