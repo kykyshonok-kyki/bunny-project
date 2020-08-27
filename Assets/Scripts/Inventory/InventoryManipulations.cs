@@ -11,16 +11,25 @@ public class InventoryManipulations : MonoBehaviour
     public GameObject displayedCharacterInventory;
     public GameObject displayedLootedInventory;
 
+    public int currentSlot;
 
 
-    public void checkCurrentInventories()
+    public void CheckCurrentInventories()
     {
         characterInventory = displayedCharacterInventory.GetComponent<DisplayInventory>().inventory;
         lootedInventory = displayedLootedInventory.GetComponent<DisplayInventory>().inventory;
     }
 
-    public void pressedTakeButton(int _i)
+    public void UpdateCurrentInventories()
     {
+        displayedCharacterInventory.GetComponent<DisplayInventory>().inventory = characterInventory;
+        displayedLootedInventory.GetComponent<DisplayInventory>().inventory = lootedInventory;
+    }
+
+ /*   public void pressedTakeButton(int _i)
+    {
+
+
         var _item = lootedInventory.Container.Items[_i].item;
 
         characterInventory.AddItem(_item, 1);
@@ -28,11 +37,12 @@ public class InventoryManipulations : MonoBehaviour
 
     }
 
-    public void pressedRemoveButton(int _i)
+    public void pressedRemoveButton(GameObject invCell)
     {
+
         var _item = lootedInventory.Container.Items[_i].item;
 
         characterInventory.RemoveItem(_i);
         lootedInventory.AddItem(_item, 1);
-    }
+    }*/
 }

@@ -19,10 +19,10 @@ public class DisplayInventory : MonoBehaviour
         CreateDisplay();
     }
 
-    private void Update()
+    /*private void Update()
     {
         UpdateDisplay();
-    }
+    }*/
 
     //Метод, генерирующий отображения инвентаря
     public void CreateDisplay()
@@ -34,11 +34,13 @@ public class DisplayInventory : MonoBehaviour
             obj.GetComponentInChildren<Text>().text = inventory.Container.Items[i].item.name;
 
             itemsDisplayed.Add(inventory.Container.Items[i], obj);
+            //Передача в скрипт ячейки инвентаря номер отображаемого слота в List
+            inventoryPrefab.GetComponent<TestInvCell>().numberInList = i;
         }
     }
 
     //Метод, проверяющий "актуальность" отображаемого
-    //Надо будет как-нибудь переделать не через апдейт
+
     public void UpdateDisplay()
     {
         for (int i = 0; i < inventory.Container.Items.Count; i++)
@@ -46,6 +48,7 @@ public class DisplayInventory : MonoBehaviour
             if (itemsDisplayed.ContainsKey(inventory.Container.Items[i]))
             {
                 itemsDisplayed[inventory.Container.Items[i]].GetComponentInChildren<Text>().text = inventory.Container.Items[i].item.name;
+                inventoryPrefab.GetComponent<TestInvCell>().numberInList = i;
             }
             else
             {
@@ -53,6 +56,7 @@ public class DisplayInventory : MonoBehaviour
                 obj.GetComponentInChildren<Text>().text = inventory.Container.Items[i].item.name;
 
                 itemsDisplayed.Add(inventory.Container.Items[i], obj);
+                inventoryPrefab.GetComponent<TestInvCell>().numberInList = i;
             }
         }
     }

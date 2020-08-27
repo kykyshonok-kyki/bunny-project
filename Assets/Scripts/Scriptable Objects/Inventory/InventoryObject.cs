@@ -57,7 +57,7 @@ public class InventoryObject : ScriptableObject
         }
         else
         {
-            Container.Items.RemoveAt(_i);
+            Container.Items.Remove(Container.Items[_i]);
         }
     }
 
