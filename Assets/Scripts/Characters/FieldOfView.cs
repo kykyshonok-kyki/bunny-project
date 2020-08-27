@@ -10,7 +10,7 @@ public class FieldOfView : MonoBehaviour
 
     private Mesh mesh;
     private int rayCount;
-    private const int angleForRay = 1;
+    private const float angleForRay = 0.2f;
     private LayerMask objectsLayer;
     private Vector3 origin;
 
@@ -21,38 +21,48 @@ public class FieldOfView : MonoBehaviour
     private void Start()
     {
         mesh = new Mesh();
-        gameObject.GetComponent<MeshFilter>().mesh = mesh;
         objectsLayer = LayerMask.GetMask("Objects");
     }
 
     private void LateUpdate()
     {
         RaycastHit2D hit;
+        int trianglesCount;
 
-        rayCount = (int)fovDegrees / angleForRay + 1;
+        rayCount = (int) (fovDegrees / angleForRay + 1);
 
         newVertices = new Vector3[rayCount + 1];
         newUV = new Vector2[newVertices.Length];
-        newTriangles = new int[(rayCount - 1) * 3];
+        trianglesCount = (rayCount - 1) * 3;
+        newTriangles = new int[trianglesCount];
 
+        newVertices[0] = Vector3.zero;
+        newUV[0] = Vector2.zero;
+
+        origin = Quaternion.AngleAxis(fovDegrees / -2, Vector3.forward) * (transform.rotation * Vector3.right);
+        for (int i = 1; i <= rayCount; i++)
+        {
+            if (hit = Physics2D.Raycast(transform.position, Quaternion.AngleAxis(i * angleForRay, Vector3.forward) * origin, viewDist, objectsLayer)) //Если столкнулся с объектом
+            {
+                newVertices[i] = Quaternion.Inverse(transform.rotation) * (hit.point - (Vector2) transform.position);
+                newUV[i] = hit.point.normalized;
+            }
+            else
+            {
+                newVertices[i] = Quaternion.Inverse(transform.rotation) * Quaternion.Euler(0, 0, i * angleForRay) * origin * viewDist;
+                newUV[i] = newVertices[i].normalized;
+            }
+        }
+        for (int i = 0; i < rayCount - 1; i++)
+        {
+            newTriangles[i * 3] = 0;
+            newTriangles[i * 3 + 1] = i + 1;
+            newTriangles[i * 3 + 2] = i + 2;
+        }
         mesh.vertices = newVertices;
         mesh.uv = newUV;
         mesh.triangles = newTriangles;
 
-        rayCount = (int)fovDegrees / angleForRay + 1;
-        origin = Quaternion.AngleAxis(fovDegrees / -2, Vector3.forward) * (transform.rotation * Vector3.right);
-        for (int i = 0; i < rayCount; i++)
-        {
-            if (hit = Physics2D.Raycast(transform.position, Quaternion.AngleAxis(i * angleForRay, Vector3.forward) * origin, viewDist, objectsLayer)) //Если столкнулся с объектом
-            {
-                newVertices[i] = hit.point;
-                Debug.DrawLine(transform.position, hit.point);
-            }
-            else
-            {
-                newVertices[i] = transform.position + Quaternion.Euler(0, 0, i * angleForRay) * origin * viewDist;
-                Debug.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 0, i * angleForRay) * origin * viewDist);
-            }
-        }
+        gameObject.GetComponent<MeshFilter>().mesh = mesh;
     }
 }
