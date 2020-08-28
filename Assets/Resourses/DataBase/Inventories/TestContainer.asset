@@ -14,10 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stockCapacity: 10
   maxCapacity: 10
-  database: {fileID: 11400000, guid: 5671a34112a71654d9006eea2eeaf56f, type: 2}
   savePath: 
   Container:
-    Items:
-    - id: 0
-      item: {fileID: 11400000, guid: 62d14963888d008478f0f4d7c95a0389, type: 2}
-      amount: 1
+    Items: []

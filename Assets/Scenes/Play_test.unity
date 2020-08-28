@@ -2759,7 +2759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: eeaca53f5afc43544adc4509ef0ca07b, type: 2}
-  inventoryPrefab: {fileID: 4261488777908375208, guid: 5966038622eac9c4585ce13cb2e16dec,
+  cellPrefab: {fileID: 4261488777908375208, guid: 5966038622eac9c4585ce13cb2e16dec,
     type: 3}
 --- !u!1 &282932488
 GameObject:
@@ -5429,7 +5429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: c1104d7c01217064b8accfb0ec91a82d, type: 2}
-  inventoryPrefab: {fileID: 4261488777908375208, guid: 3e35ecbe66771e144a838ba8a0e77dc6,
+  cellPrefab: {fileID: 4261488777908375208, guid: 3e35ecbe66771e144a838ba8a0e77dc6,
     type: 3}
 --- !u!1 &847942817
 GameObject:

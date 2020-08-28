@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//made by Kurochitskiy nicholasnordwind@gmail.com
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,6 +31,7 @@ public class TestInvCell : MonoBehaviour
 
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
             theInventoryUI.GetComponent<InventoryManipulations>().currentSlot = numberInList;
+            Debug.Log(theInventoryUI.GetComponent<InventoryManipulations>().currentSlot);
         }
     }
 

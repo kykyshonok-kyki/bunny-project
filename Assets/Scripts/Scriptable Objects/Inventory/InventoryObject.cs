@@ -14,7 +14,7 @@ public class InventoryObject : ScriptableObject
     public float stockCapacity;
     public float maxCapacity;
     private float currentCapacity;
-    public ItemDataBaseObject database;
+    //public ItemDataBaseObject database;
     public string savePath;
     public Inventory Container;
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//made by Kurochitskiy nicholasnordwind@gmail.com
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
