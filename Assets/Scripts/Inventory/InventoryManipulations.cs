@@ -47,8 +47,9 @@ public class InventoryManipulations : MonoBehaviour
     {
         Debug.Log("RemoveButton");
         CheckCurrentInventories();
-        var _item = lootedInventory.Container.Items[currentSlot].item;
-
+        Debug.Log(currentSlot);
+        var _item = characterInventory.Container.Items[currentSlot].item;
+        Debug.Log("RemoveButton2");
         lootedInventory.AddItem(_item, 1);
         characterInventory.RemoveItem(currentSlot);
 
