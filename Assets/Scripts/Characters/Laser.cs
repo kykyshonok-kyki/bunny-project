@@ -15,8 +15,16 @@ public class Laser : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 100, ~ignoreLayer);
-        lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, hit.point);
+        RaycastHit2D hit;
+        if (hit = Physics2D.Raycast(transform.position, transform.right, 100, ~ignoreLayer))
+        {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, hit.point);
+        }
+        else
+        {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, transform.position + transform.right * 100);
+        }
     }
 }
