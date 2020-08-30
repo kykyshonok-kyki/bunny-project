@@ -89,9 +89,9 @@ GameObject:
   - component: {fileID: 8366090371760354628}
   - component: {fileID: 2447825328186493599}
   - component: {fileID: 1182390869545830439}
-  - component: {fileID: 5300584063026917803}
+  - component: {fileID: 8738955719453005161}
   m_Layer: 5
-  m_Name: RemoveButton
+  m_Name: TakeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,8 +192,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5300584063026917803}
-        m_MethodName: PressRemove
+      - m_Target: {fileID: 8738955719453005161}
+        m_MethodName: PressTake
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -203,7 +203,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5300584063026917803
+--- !u!114 &8738955719453005161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 646836076507066182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78ab9906902725645a0592fa7f9ae71b, type: 3}
+  m_Script: {fileID: 11500000, guid: d8dfdfc21d5d0f04fb776b14b0a3a3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1644849028186468635
@@ -264,9 +264,9 @@ GameObject:
   - component: {fileID: 4261488777908375220}
   - component: {fileID: 4261488777908375211}
   - component: {fileID: 4261488777908375210}
-  - component: {fileID: 8665526441829245974}
+  - component: {fileID: 1879793398}
   m_Layer: 5
-  m_Name: TestInvCell
+  m_Name: TestLootedInvCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8665526441829245974}
+      - m_Target: {fileID: 1879793398}
         m_MethodName: OnBeingPressed
         m_Mode: 1
         m_Arguments:
@@ -379,7 +379,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8665526441829245974
+--- !u!114 &1879793398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad74ef632e379ff49ba1695a93a62ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberInList: 1
+  numberInList: 0
   theInventoryUI: {fileID: 0}
   theInventoryPanel: {fileID: 0}
   theLootedPanel: {fileID: 0}
@@ -548,7 +548,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Remove
+  m_Text: Take
 --- !u!1 &8715297405540563324
 GameObject:
   m_ObjectHideFlags: 0
