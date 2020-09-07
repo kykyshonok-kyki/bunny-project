@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5790340366993853618}
   - component: {fileID: 2605067002117784810}
   - component: {fileID: 6959649314904712294}
-  m_Layer: 0
-  m_Name: BulletTest2
+  m_Layer: 8
+  m_Name: BulletTestBig
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
