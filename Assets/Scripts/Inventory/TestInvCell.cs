@@ -31,7 +31,6 @@ public class TestInvCell : MonoBehaviour
 
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
             theInventoryUI.GetComponent<InventoryManipulations>().currentSlot = numberInList;
-            Debug.Log(theInventoryUI.GetComponent<InventoryManipulations>().currentSlot);
         }
     }
 
