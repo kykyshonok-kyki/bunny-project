@@ -1082,6 +1082,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 137105813}
+  - component: {fileID: 137105814}
   m_Layer: 0
   m_Name: OneShootGuy
   m_TagString: Character
@@ -1105,6 +1106,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &137105814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137105812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01388883f9baedc43a3983f4703458bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
 --- !u!1 &141342555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,6 +3817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 436063380}
+  - component: {fileID: 436063381}
   m_Layer: 0
   m_Name: Pepega
   m_TagString: Character
@@ -3826,6 +3841,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &436063381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436063379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01388883f9baedc43a3983f4703458bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
 --- !u!1 &508017415
 GameObject:
   m_ObjectHideFlags: 0
@@ -4499,7 +4527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597407206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.69142795, y: -0.5985446, z: -0.15797307}
+  m_LocalPosition: {x: 0, y: 0, z: -0.15797307}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 165024981}
@@ -5376,7 +5404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000011725693, y: -0.000010916061}
+  m_AnchoredPosition: {x: 0, y: -0.000010916061}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &814903583
@@ -5833,6 +5861,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  inventoryDisplay: {fileID: 814903581}
+  inventoryButton: {fileID: 1305270332}
 --- !u!1001 &886592837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7680,7 +7710,7 @@ GameObject:
   m_Layer: 0
   m_Name: DeadDed
   m_TagString: Character
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7692,7 +7722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236114877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.69142795, y: -1.98, z: 0.15797307}
+  m_LocalPosition: {x: 0.13, y: -2.51, z: 0.15797307}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1903258024}
@@ -7921,6 +7951,7 @@ GameObject:
   - component: {fileID: 1305270336}
   - component: {fileID: 1305270335}
   - component: {fileID: 1305270334}
+  - component: {fileID: 1305270337}
   m_Layer: 5
   m_Name: InventoryButton
   m_TagString: Untagged
@@ -7999,6 +8030,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1305270337}
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1305270335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8034,6 +8076,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305270332}
   m_CullTransparentMesh: 0
+--- !u!114 &1305270337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305270332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7443f1088874404cacec2afd3b45389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 758947415}
+  currentCharacter: {fileID: 1236114877}
 --- !u!1 &1326728179
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,8 @@ public class CharacterFromList : MonoBehaviour, IPointerUpHandler, IPointerDownH
 {
 	public GameObject[] characters = new GameObject[5];
 	private	int curCharacter;
-
+	public GameObject inventoryDisplay;
+	public GameObject inventoryButton;
 	void Start()
 	{
 		curCharacter = 0;
@@ -34,6 +35,9 @@ public class CharacterFromList : MonoBehaviour, IPointerUpHandler, IPointerDownH
 							characters[curCharacter].GetComponent<MoveController>().enabled = true;
 							characters[curCharacter].GetComponent<ShootController>().enabled = true;
 							characters[curCharacter].transform.GetChild(1).gameObject.SetActive(true);
+
+							inventoryDisplay.GetComponent<DisplayInventory>().inventory = characters[curCharacter].GetComponent<PlayerInventory>().inventory;
+							inventoryButton.GetComponent<GetLootedInventory>().currentCharacter = characters[curCharacter];
 						}
 	}
 

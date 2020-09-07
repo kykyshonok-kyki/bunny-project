@@ -6,6 +6,6 @@ public class RemoveButton : MonoBehaviour
 {
     public void PressRemove()
     {
-        gameObject.transform.parent.parent.parent.parent.parent.parent.gameObject.GetComponent<InventoryManipulations>().pressedRemoveButton();
+        gameObject.transform.parent.parent.parent.parent.parent.parent.gameObject.GetComponent<InventoryManipulations>().PressedRemoveButton();
     }
 }
