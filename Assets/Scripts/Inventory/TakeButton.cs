@@ -6,6 +6,6 @@ public class TakeButton : MonoBehaviour
 {
     public void PressTake()
     {
-        gameObject.transform.parent.parent.parent.parent.parent.parent.gameObject.GetComponent<InventoryManipulations>().pressedTakeButton();
+        gameObject.transform.parent.parent.parent.parent.parent.parent.gameObject.GetComponent<InventoryManipulations>().PressedTakeButton();
     }
 }

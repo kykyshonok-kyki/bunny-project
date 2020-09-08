@@ -30,9 +30,9 @@ public class InventoryManipulations : MonoBehaviour
         displayedLootedInventory.GetComponent<DisplayInventory>().UpdateDisplay();
     }
 
-   public void pressedTakeButton()
+   public void PressedTakeButton()
     {
-        Debug.Log("TakeButton");
+        
         CheckCurrentInventories();
         var _item = lootedInventory.Container.Items[currentSlot].item;
 
@@ -40,20 +40,20 @@ public class InventoryManipulations : MonoBehaviour
         lootedInventory.RemoveItem(currentSlot);
 
         UpdateCurrentInventories();
-        Debug.Log("TakeButton");
+        
     }
 
-    public void pressedRemoveButton()
+    public void PressedRemoveButton()
     {
-        Debug.Log("RemoveButton");
+        
         CheckCurrentInventories();
         Debug.Log(currentSlot);
         var _item = characterInventory.Container.Items[currentSlot].item;
-        Debug.Log("RemoveButton2");
+        
         lootedInventory.AddItem(_item, 1);
         characterInventory.RemoveItem(currentSlot);
 
         UpdateCurrentInventories();
-        Debug.Log("RemoveButton2");
+        
     }
 }

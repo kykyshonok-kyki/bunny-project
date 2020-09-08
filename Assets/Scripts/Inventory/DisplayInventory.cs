@@ -11,8 +11,10 @@ public class DisplayInventory : MonoBehaviour
 
     private List<GameObject> cellList = new List<GameObject>();
 
-    public void Start()
+
+    public void OnEnable()
     {
+        DeleteDisplay();
         CreateDisplay();
     }
 
