@@ -42,7 +42,7 @@ public class CharacterFromList : MonoBehaviour, IPointerUpHandler, IPointerDownH
 							characters[curCharacter].transform.GetChild(1).gameObject.SetActive(true);
 
 							inventoryDisplay.GetComponent<DisplayInventory>().inventory = characters[curCharacter].GetComponent<PlayerInventory>().inventory;
-							inventoryButton.GetComponent<GetLootedInventory>().currentCharacter = characters[curCharacter];
+							
 						}
 	}
 
