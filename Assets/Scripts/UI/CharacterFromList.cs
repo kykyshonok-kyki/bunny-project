@@ -8,7 +8,6 @@ public class CharacterFromList : MonoBehaviour, IPointerUpHandler, IPointerDownH
 	public GameObject[] characters = new GameObject[5];
 	private	int curCharacter;
 	public GameObject inventoryDisplay;
-	public GameObject inventoryButton;
 	void Start()
 	{
 		curCharacter = 0;
@@ -18,6 +17,7 @@ public class CharacterFromList : MonoBehaviour, IPointerUpHandler, IPointerDownH
 	{
 		GameObject pressedGameObject = eventData.pointerCurrentRaycast.gameObject;
 		GameObject laser;
+		GameObject lootedZone;
 		Vector2 pos;
 
 		if (pressedGameObject)
@@ -32,17 +32,21 @@ public class CharacterFromList : MonoBehaviour, IPointerUpHandler, IPointerDownH
 							characters[curCharacter].GetComponent<ShootController>().enabled = false;
 							characters[curCharacter].transform.GetChild(1).gameObject.SetActive(false);
 							laser = characters[curCharacter].transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+							lootedZone = characters[curCharacter].transform.GetChild(3).gameObject;
 							curCharacter = (int)(pos.y / (-55));
 							laser.transform.SetParent(characters[curCharacter].transform.GetChild(0).GetChild(0));
 							laser.transform.position = laser.transform.parent.position;
 							laser.transform.rotation = laser.transform.parent.rotation;
+							lootedZone.transform.SetParent(characters[curCharacter].transform);
+							lootedZone.transform.position = lootedZone.transform.parent.position;
+							//lootedZone.transform.rotation = laser.transform.parent.rotation;
 							characters[curCharacter].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;        //Исправить после добавления ИИ
 							characters[curCharacter].GetComponent<MoveController>().enabled = true;
 							characters[curCharacter].GetComponent<ShootController>().enabled = true;
 							characters[curCharacter].transform.GetChild(1).gameObject.SetActive(true);
 
-							inventoryDisplay.GetComponent<DisplayInventory>().inventoriesDisplayed[0] = characters[curCharacter].GetComponent<PlayerInventory>().inventory;
-							
+							inventoryDisplay.GetComponent<DisplayInventory>().inventoriesDisplayed[0] = characters[curCharacter].GetComponentInParent<PlayerInventory>().inventory;
+
 						}
 	}
 
