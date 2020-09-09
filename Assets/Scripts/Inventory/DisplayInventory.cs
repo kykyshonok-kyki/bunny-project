@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class DisplayInventory : MonoBehaviour
 {
-    public InventoryObject inventory;
+    public List<InventoryObject> inventoriesDisplayed = new List<InventoryObject>();
+    //public InventoryObject inventory;
     public GameObject cellPrefab;
 
     private List<GameObject> cellList = new List<GameObject>();
@@ -32,19 +33,6 @@ public class DisplayInventory : MonoBehaviour
 
     }
 
-    public void CreateDisplay()
-    {
-        var maxIndex = inventory.Container.Items.Count;
-        for (int i = 0; i < maxIndex; i++)
-        {
-            var obj = Instantiate(cellPrefab, gameObject.transform);
-            obj.GetComponent<TestInvCell>().numberInList = i;
-            cellList.Add(obj);
-            obj.GetComponentInChildren<Text>().text = inventory.Container.Items[i].item.name;
-
-        }
-    }
-
     public void DeleteDisplay()
     {
         foreach (GameObject cell in cellList)
@@ -55,4 +43,21 @@ public class DisplayInventory : MonoBehaviour
     }
 
 
+    public void CreateDisplay()
+    {
+        int numberOfInventories = inventoriesDisplayed.Count;
+        for (int j = 0; j < numberOfInventories; j++)
+        {
+            var maxIndex = inventoriesDisplayed[j].Container.Items.Count;
+            for (int i = 0; i < maxIndex; i++)
+            {
+                var obj = Instantiate(cellPrefab, gameObject.transform);
+                obj.GetComponent<TestInvCell>().numberInList = i;
+                obj.GetComponent<TestInvCell>().inventoryAssigned = j;
+                cellList.Add(obj);
+                obj.GetComponentInChildren<Text>().text = inventoriesDisplayed[j].Container.Items[i].item.name;
+
+            }
+        }
+    }
 }
