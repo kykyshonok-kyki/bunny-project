@@ -1344,6 +1344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179714455}
+  - component: {fileID: 179714456}
   m_Layer: 0
   m_Name: OneShootGuy
   m_TagString: Character
@@ -1367,6 +1368,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &179714456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179714454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01388883f9baedc43a3983f4703458bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: c25f9a0ddd7476047b4a383cbb73ec67, type: 2}
 --- !u!1 &199779291
 GameObject:
   m_ObjectHideFlags: 0
@@ -5793,6 +5807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 923840915}
+  - component: {fileID: 923840916}
   m_Layer: 0
   m_Name: Pepega
   m_TagString: Character
@@ -5816,6 +5831,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &923840916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923840914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01388883f9baedc43a3983f4703458bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 42d62baa41668404ba30fe23e3b4a910, type: 2}
 --- !u!1 &924031185
 GameObject:
   m_ObjectHideFlags: 0
