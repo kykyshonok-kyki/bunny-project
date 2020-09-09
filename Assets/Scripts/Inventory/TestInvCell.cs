@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TestInvCell : MonoBehaviour
 {
+    public int inventoryAssigned;
     public int numberInList;
     public GameObject theInventoryUI;
     public GameObject theInventoryPanel;
@@ -31,25 +32,34 @@ public class TestInvCell : MonoBehaviour
 
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
             theInventoryUI.GetComponent<InventoryManipulations>().currentSlot = numberInList;
+            theInventoryUI.GetComponent<InventoryManipulations>().currentInventory = inventoryAssigned;
         }
     }
 
     private void OffAll()
     {
-       // if () 
+
+        int inventoriesCount = theInventoryPanel.GetComponent<DisplayInventory>().inventoriesDisplayed.Count;
+        for (int j = 0; j < inventoriesCount; j++)
         {
-            int maxIndex = theInventoryPanel.GetComponent<DisplayInventory>().inventory.Container.Items.Count;
+            int maxIndex = theInventoryPanel.GetComponent<DisplayInventory>().inventoriesDisplayed[j].Container.Items.Count;
             for (int i = 0; i < maxIndex; i++)
             {
                 theInventoryPanel.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
             }
+        }
 
-            int _maxIndex = theLootedPanel.GetComponent<DisplayInventory>().inventory.Container.Items.Count;
+
+        int _inventoriesCount = theLootedPanel.GetComponent<DisplayInventory>().inventoriesDisplayed.Count;
+        for (int k = 0; k < _inventoriesCount; k++) 
+        { 
+            int _maxIndex = theLootedPanel.GetComponent<DisplayInventory>().inventoriesDisplayed[k].Container.Items.Count;
             for (int i = 0; i < _maxIndex; i++)
             {
                 theLootedPanel.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
-            }
+            } 
         }
+
     }
 
 

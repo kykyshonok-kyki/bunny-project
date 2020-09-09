@@ -9,6 +9,7 @@ public class GetLootedInventory : MonoBehaviour
     public GameObject inventory;
     public GameObject lootedInventory;
     public List<GameObject> lootedObjects = new List<GameObject>();
+    public List<InventoryObject> lootedInventories = new List<InventoryObject>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,23 +26,24 @@ public class GetLootedInventory : MonoBehaviour
         {
             lootedObjects.Remove(collision.gameObject);
             LootedInventoryManipulations();
+
+            
         }
     }
 
     public void Start()
     {
-        lootedInventory.GetComponent<DisplayInventory>().inventory.Container.Items.Clear();
+        lootedInventory.GetComponent<DisplayInventory>().inventoriesDisplayed.Clear();
     }
 
     private void LootedInventoryManipulations()
     {
-        lootedInventory.GetComponent<DisplayInventory>().inventory.Container.Items.Clear();
+        lootedInventory.GetComponent<DisplayInventory>().inventoriesDisplayed.Clear();
         foreach (GameObject @object in lootedObjects)
         {
-            foreach (var itemSlot in @object.GetComponent<Container>().inventory.Container.Items)
-            {
-                lootedInventory.GetComponent<DisplayInventory>().inventory.Container.Items.Add(new InventorySlot(itemSlot.item, itemSlot.amount));
-            }
+            //lootedInventories.Add(@object.GetComponent<Container>().inventory);
+
+            lootedInventory.GetComponent<DisplayInventory>().inventoriesDisplayed.Add(@object.GetComponent<Container>().inventory);
         }
 
     }
