@@ -26,12 +26,12 @@ TagManager:
   - 
   - LaserIgnore
   - Objects
-  - Black
-  - Players
-  - Decorations
-  - Mask
-  - BehindMask
-  - MyUI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -49,12 +49,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Down
-    uniqueID: 2925496529
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Top
-    uniqueID: 4093102127
     locked: 0
