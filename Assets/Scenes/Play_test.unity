@@ -2590,7 +2590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb8b0bce214add4193de0f555a080e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: 97f6a37c73fba4542bafe42083621f24, type: 2}
+  inventoriesDisplayed: []
   cellPrefab: {fileID: 4261488777908375208, guid: 5966038622eac9c4585ce13cb2e16dec,
     type: 3}
 --- !u!1 &269328107
@@ -4521,6 +4521,7 @@ MonoBehaviour:
   inventory: {fileID: 758947415}
   lootedInventory: {fileID: 264295961}
   lootedObjects: []
+  lootedInventories: []
 --- !u!58 &708247428
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4696,11 +4697,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97c0af8e17b1184b9e35456b781db34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootedInventories: []
   characterInventory: {fileID: 11400000, guid: c1104d7c01217064b8accfb0ec91a82d, type: 2}
-  lootedInventory: {fileID: 11400000, guid: eeaca53f5afc43544adc4509ef0ca07b, type: 2}
   displayedCharacterInventory: {fileID: 814903581}
   displayedLootedInventory: {fileID: 264295961}
   currentSlot: 0
+  currentInventory: 0
 --- !u!114 &758947421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5049,7 +5051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb8b0bce214add4193de0f555a080e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: c1104d7c01217064b8accfb0ec91a82d, type: 2}
+  inventoriesDisplayed:
+  - {fileID: 11400000, guid: c1104d7c01217064b8accfb0ec91a82d, type: 2}
   cellPrefab: {fileID: 4261488777908375208, guid: 3e35ecbe66771e144a838ba8a0e77dc6,
     type: 3}
 --- !u!1 &847942817
@@ -5739,7 +5742,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 656185805}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5894,7 +5897,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 35465064}
   m_HandleRect: {fileID: 35465063}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

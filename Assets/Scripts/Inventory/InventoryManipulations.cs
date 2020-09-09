@@ -5,26 +5,28 @@ using UnityEngine;
 
 public class InventoryManipulations : MonoBehaviour
 {
+    public List<InventoryObject> lootedInventories = new List<InventoryObject>();
 
     public InventoryObject characterInventory;
-    public InventoryObject lootedInventory;
+    //public InventoryObject lootedInventory;
     
     public GameObject displayedCharacterInventory;
     public GameObject displayedLootedInventory;
 
     public int currentSlot;
+    public int currentInventory;
 
     
     public void CheckCurrentInventories()
     {
-        characterInventory = displayedCharacterInventory.GetComponent<DisplayInventory>().inventory;
-        lootedInventory = displayedLootedInventory.GetComponent<DisplayInventory>().inventory;
+        characterInventory = displayedCharacterInventory.GetComponent<DisplayInventory>().inventoriesDisplayed[0];
+        lootedInventories = displayedLootedInventory.GetComponent<DisplayInventory>().inventoriesDisplayed;
     }
 
     public void UpdateCurrentInventories()
     {
-        displayedCharacterInventory.GetComponent<DisplayInventory>().inventory = characterInventory;
-        displayedLootedInventory.GetComponent<DisplayInventory>().inventory = lootedInventory;
+        displayedCharacterInventory.GetComponent<DisplayInventory>().inventoriesDisplayed[0] = characterInventory;
+        displayedLootedInventory.GetComponent<DisplayInventory>().inventoriesDisplayed = lootedInventories;
 
         displayedCharacterInventory.GetComponent<DisplayInventory>().UpdateDisplay();
         displayedLootedInventory.GetComponent<DisplayInventory>().UpdateDisplay();
@@ -34,23 +36,23 @@ public class InventoryManipulations : MonoBehaviour
     {
         
         CheckCurrentInventories();
-        var _item = lootedInventory.Container.Items[currentSlot].item;
+        var _item = lootedInventories[currentInventory].Container.Items[currentSlot].item;
 
         characterInventory.AddItem(_item, 1);
-        lootedInventory.RemoveItem(currentSlot);
+        lootedInventories[currentInventory].RemoveItem(currentSlot);
 
         UpdateCurrentInventories();
-        
+
     }
 
     public void PressedRemoveButton()
     {
         
         CheckCurrentInventories();
-        Debug.Log(currentSlot);
+
         var _item = characterInventory.Container.Items[currentSlot].item;
         
-        lootedInventory.AddItem(_item, 1);
+        lootedInventories[0].AddItem(_item, 1);
         characterInventory.RemoveItem(currentSlot);
 
         UpdateCurrentInventories();

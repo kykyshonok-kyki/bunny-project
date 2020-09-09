@@ -41,7 +41,7 @@ public class CharacterFromList : MonoBehaviour, IPointerUpHandler, IPointerDownH
 							characters[curCharacter].GetComponent<ShootController>().enabled = true;
 							characters[curCharacter].transform.GetChild(1).gameObject.SetActive(true);
 
-							inventoryDisplay.GetComponent<DisplayInventory>().inventory = characters[curCharacter].GetComponent<PlayerInventory>().inventory;
+							inventoryDisplay.GetComponent<DisplayInventory>().inventoriesDisplayed[0] = characters[curCharacter].GetComponent<PlayerInventory>().inventory;
 							
 						}
 	}
