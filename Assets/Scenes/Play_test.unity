@@ -5499,8 +5499,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  inventoryDisplay: {fileID: 0}
-  inventoryButton: {fileID: 0}
+  inventoryDisplay: {fileID: 814903581}
+  inventoryButton: {fileID: 1305270332}
 --- !u!1001 &886592837
 PrefabInstance:
   m_ObjectHideFlags: 0
