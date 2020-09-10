@@ -3120,7 +3120,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 50.954086, y: 0}
+  m_AnchoredPosition: {x: 50.9541, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &350708196
@@ -4478,7 +4478,7 @@ GameObject:
   - component: {fileID: 692093669}
   - component: {fileID: 692093671}
   - component: {fileID: 692093670}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LaserStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5500,7 +5500,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inventoryDisplay: {fileID: 814903581}
-  inventoryButton: {fileID: 1305270332}
 --- !u!1001 &886592837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5797,7 +5796,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 656185805}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5966,7 +5965,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 35465064}
   m_HandleRect: {fileID: 35465063}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
